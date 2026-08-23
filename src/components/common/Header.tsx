@@ -61,29 +61,29 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSampleModal }) => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3.5 sm:py-5 px-3 sm:px-6">
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 sm:py-4 px-3 sm:px-6">
       <div
-        className={`max-w-7xl mx-auto transition-all duration-500 rounded-full px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between shadow-2xl ${
+        className={`max-w-7xl mx-auto transition-all duration-500 rounded-full px-5 sm:px-7 py-2.5 sm:py-3 flex items-center justify-between gap-4 sm:gap-6 shadow-2xl ${
           isScrolled
-            ? 'bg-[#070809]/85 backdrop-blur-2xl border border-white/10 ring-1 ring-white/5'
-            : 'bg-[#0E1116]/60 backdrop-blur-xl border border-white/10'
+            ? 'bg-[#070809]/90 backdrop-blur-2xl border border-white/10 ring-1 ring-white/5'
+            : 'bg-[#0E1116]/75 backdrop-blur-xl border border-white/10'
         }`}
       >
-        {/* Official Avighna Logo */}
+        {/* Official Avighna Logo with Safe Margin */}
         <a
           href="#overview"
           onClick={(e) => {
             e.preventDefault();
             handleLinkClick('#overview');
           }}
-          className="group focus:outline-none shrink-0"
+          className="group focus:outline-none shrink-0 pr-2"
           aria-label="Avighna Speciality Ingredients Home"
         >
           <AvighnaLogo size={isScrolled ? 'sm' : 'md'} theme="dark" variant="full" />
         </a>
 
         {/* Desktop Floating Pill Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-1.5 p-1 bg-black/40 backdrop-blur-md rounded-full border border-white/5" aria-label="Primary Navigation">
+        <nav className="hidden xl:flex items-center gap-1.5 p-1 bg-black/40 backdrop-blur-md rounded-full border border-white/5" aria-label="Primary Navigation">
           {navLinks.map((link) => {
             const sectionId = link.href.replace('#', '');
             const isActive = activeSection === sectionId;
@@ -107,12 +107,37 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSampleModal }) => {
           })}
         </nav>
 
-        {/* Action Elements & Hotline */}
-        <div className="flex items-center gap-2.5 sm:gap-3.5">
+        {/* Compact Navigation for Large Screens (1024px - 1280px) */}
+        <nav className="hidden lg:flex xl:hidden items-center gap-1 p-1 bg-black/40 backdrop-blur-md rounded-full border border-white/5" aria-label="Primary Navigation Compact">
+          {navLinks.slice(0, 4).map((link) => {
+            const sectionId = link.href.replace('#', '');
+            const isActive = activeSection === sectionId;
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleLinkClick(link.href);
+                }}
+                className={`px-3 py-1 rounded-full text-[11px] font-sans font-medium tracking-wide transition-all duration-200 cursor-pointer ${
+                  isActive
+                    ? 'bg-[#E0581E] text-[#070809] font-bold shadow-md'
+                    : 'text-[#F9F8F5]/75 hover:text-[#F9F8F5] hover:bg-white/[0.06]'
+                }`}
+              >
+                {link.label}
+              </a>
+            );
+          })}
+        </nav>
+
+        {/* Action Elements & Hotline with Safe Shrink Handling */}
+        <div className="flex items-center gap-2.5 sm:gap-3.5 shrink-0">
           {/* Direct Phone Desk Pill */}
           <a
             href={`tel:${COMPANY_PROFILE.phones.primaryRaw}`}
-            className="hidden xl:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 hover:border-[#E0581E]/50 font-mono text-xs text-[#F9F8F5]/85 hover:text-[#E0581E] transition-all"
+            className="hidden 2xl:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 hover:border-[#E0581E]/50 font-mono text-xs text-[#F9F8F5]/85 hover:text-[#E0581E] transition-all"
             title="Direct Executive Hotline (Ashita)"
           >
             <Phone className="w-3.5 h-3.5 text-[#E0581E]" />

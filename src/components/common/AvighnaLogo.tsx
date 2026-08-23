@@ -16,14 +16,14 @@ export const AvighnaLogo: React.FC<AvighnaLogoProps> = ({
   const isDark = theme === 'dark';
   
   const sizeMap = {
-    sm: { markSize: 28, textClass: 'text-xl tracking-tight', subClass: 'text-[8px] tracking-[0.22em]' },
-    md: { markSize: 36, textClass: 'text-2xl sm:text-3xl tracking-tight', subClass: 'text-[9.5px] tracking-[0.26em]' },
-    lg: { markSize: 48, textClass: 'text-3xl sm:text-4xl tracking-tight', subClass: 'text-[11px] tracking-[0.3em]' },
+    sm: { markSize: 26, textClass: 'text-lg', subClass: 'text-[7.5px] tracking-[0.2em]' },
+    md: { markSize: 32, textClass: 'text-xl sm:text-2xl', subClass: 'text-[8.5px] tracking-[0.24em]' },
+    lg: { markSize: 42, textClass: 'text-2xl sm:text-3xl', subClass: 'text-[10px] tracking-[0.28em]' },
   };
 
   const { markSize, textClass, subClass } = sizeMap[size];
 
-  // The authentic dual-petal fluid organic mark extracted from Avighna's official documentation
+  // The authentic dual-petal fluid organic mark
   const MarkSvg = (
     <svg
       width={markSize}
@@ -31,7 +31,7 @@ export const AvighnaLogo: React.FC<AvighnaLogoProps> = ({
       viewBox="0 0 100 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="shrink-0 transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_2px_10px_rgba(224,88,30,0.35)]"
+      className="shrink-0 transition-transform duration-300 group-hover:scale-105"
       aria-label="Avighna Speciality Ingredients Insignia"
     >
       <defs>
@@ -50,7 +50,7 @@ export const AvighnaLogo: React.FC<AvighnaLogoProps> = ({
         </linearGradient>
 
         <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
-          <feDropShadow dx="0" dy="2" stdDeviation="4" floodColor="#E0581E" floodOpacity="0.4" />
+          <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#E0581E" floodOpacity="0.35" />
         </filter>
       </defs>
 
@@ -81,34 +81,29 @@ export const AvighnaLogo: React.FC<AvighnaLogoProps> = ({
   }
 
   return (
-    <div className={`inline-flex items-center gap-3 select-none ${className}`}>
+    <div className={`inline-flex items-center gap-2.5 select-none shrink-0 ${className}`}>
       {MarkSvg}
 
       <div className="flex flex-col justify-center">
-        {/* Bold & Bossy Wordmark (Syne Extra-Bold / Black 900) */}
-        <div className="flex items-baseline gap-1.5 leading-none">
-          <span
-            style={{ fontFamily: "'Syne', 'Plus Jakarta Sans', sans-serif" }}
-            className={`${textClass} font-[900] uppercase tracking-[-0.02em] transition-colors ${
-              isDark
-                ? 'text-[#F9F8F5] drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] group-hover:text-[#E5B25D]'
-                : 'text-[#070809] group-hover:text-[#E0581E]'
-            }`}
-          >
-            Avighna
-          </span>
-          <span className="hidden sm:inline-block font-kannada text-[11px] font-bold text-[#E5B25D] opacity-70">
-            ಅವಿಘ್ನ
-          </span>
-        </div>
+        {/* Bold & Bossy Clean Wordmark */}
+        <span
+          style={{ fontFamily: "'Syne', 'Plus Jakarta Sans', sans-serif" }}
+          className={`${textClass} font-[900] uppercase tracking-[-0.01em] leading-none transition-colors ${
+            isDark
+              ? 'text-[#F9F8F5] group-hover:text-[#E5B25D]'
+              : 'text-[#070809] group-hover:text-[#E0581E]'
+          }`}
+        >
+          Avighna
+        </span>
 
-        {/* Bossy Subtitle / Legal Entity Descriptor */}
+        {/* Subtitle / Legal Entity Descriptor perfectly aligned beneath */}
         {variant === 'full' && (
           <span
             style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
-            className={`${subClass} font-extrabold uppercase mt-1 leading-none ${
+            className={`${subClass} font-bold uppercase mt-0.5 leading-none ${
               isDark
-                ? 'text-transparent bg-clip-text bg-gradient-to-r from-[#E5B25D] via-[#F57E25] to-[#E0581E]'
+                ? 'text-[#C88E3E] group-hover:text-[#E5B25D]'
                 : 'text-[#8A5A1A]'
             }`}
           >
