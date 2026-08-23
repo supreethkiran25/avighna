@@ -32,7 +32,7 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({ onRequestSampl
   const ezentialDosageDailyKg = (milkLitersDaily * 0.0035).toFixed(2); // 0.35%
 
   return (
-    <section id="calculator" className="relative py-24 sm:py-32 bg-[#0F1216] border-t border-white/[0.08] overflow-hidden">
+    <section id="calculator" className="relative py-24 sm:py-32 bg-[#0E1116] border-t border-white/[0.08] overflow-hidden">
       {/* Subtle AI Molecular Atmosphere Layer */}
       <div
         className="absolute inset-0 bg-cover bg-center opacity-10 mix-blend-screen pointer-events-none"
@@ -47,15 +47,15 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({ onRequestSampl
           description="Interactive formulation metrics based on verified technical trials for Xtendra 06 antioxidant oil extenders and EZENTIAL 4001 paneer coagulants."
         />
 
-        {/* Tab Selector */}
+        {/* Tab Selector as Floating Pill Deck */}
         <div className="mt-10 flex items-center justify-center">
-          <div className="inline-flex p-1 bg-[#08090A] border border-white/10 shadow-lg">
+          <div className="inline-flex p-1.5 rounded-full bg-[#070809]/80 backdrop-blur-xl border border-white/10 shadow-2xl">
             <button
               onClick={() => setActiveTab('xtendra')}
-              className={`px-5 py-2.5 text-xs font-sans font-bold uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer ${
+              className={`px-6 py-2.5 rounded-full text-xs font-sans font-bold uppercase tracking-wider flex items-center gap-2 transition-all duration-300 cursor-pointer ${
                 activeTab === 'xtendra'
-                  ? 'bg-[#E0581E] text-[#08090A] shadow-md'
-                  : 'text-[#F9F8F5]/70 hover:text-[#F9F8F5]'
+                  ? 'bg-gradient-to-r from-[#E0581E] to-[#F57E25] text-[#070809] shadow-lg shadow-[#E0581E]/30 scale-105'
+                  : 'text-[#F9F8F5]/70 hover:text-[#F9F8F5] hover:bg-white/[0.04]'
               }`}
             >
               <Flame className="w-3.5 h-3.5" />
@@ -64,10 +64,10 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({ onRequestSampl
 
             <button
               onClick={() => setActiveTab('ezential')}
-              className={`px-5 py-2.5 text-xs font-sans font-bold uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer ${
+              className={`px-6 py-2.5 rounded-full text-xs font-sans font-bold uppercase tracking-wider flex items-center gap-2 transition-all duration-300 cursor-pointer ${
                 activeTab === 'ezential'
-                  ? 'bg-[#C88E3E] text-[#08090A] shadow-md'
-                  : 'text-[#F9F8F5]/70 hover:text-[#F9F8F5]'
+                  ? 'bg-gradient-to-r from-[#C88E3E] to-[#E5B25D] text-[#070809] shadow-lg shadow-[#C88E3E]/30 scale-105'
+                  : 'text-[#F9F8F5]/70 hover:text-[#F9F8F5] hover:bg-white/[0.04]'
               }`}
             >
               <Milk className="w-3.5 h-3.5" />
@@ -76,17 +76,17 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({ onRequestSampl
           </div>
         </div>
 
-        {/* Calculator Body */}
+        {/* Calculator Body with Rounded Glass Panels */}
         <div className="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Left Inputs Box (6 cols) */}
-          <div className="lg:col-span-6 p-6 sm:p-8 bg-[#08090A]/95 backdrop-blur-sm border border-white/[0.08] flex flex-col justify-between space-y-6 shadow-xl">
+          <div className="lg:col-span-6 p-6 sm:p-8 rounded-3xl bg-[#070809]/80 backdrop-blur-2xl border border-white/10 flex flex-col justify-between space-y-6 shadow-2xl">
             <div>
               <div className="flex items-center justify-between pb-4 border-b border-white/[0.08]">
-                <span className="font-mono text-xs uppercase tracking-widest text-[#E0581E]">
-                  {activeTab === 'xtendra' ? '// Frying Line Parameters' : '// Dairy Batch Parameters'}
+                <span className="font-mono text-xs uppercase tracking-widest text-[#E0581E] px-3 py-1 rounded-full bg-[#E0581E]/10 border border-[#E0581E]/20">
+                  {activeTab === 'xtendra' ? 'Frying Line Parameters' : 'Dairy Batch Parameters'}
                 </span>
-                <span className="font-mono text-xs text-[#A3A6AD]">
+                <span className="font-mono text-xs text-[#9DA3AF]">
                   Dosage: {activeTab === 'xtendra' ? '1 gm / 1 kg oil' : '0.35% (3.5g / 1kg)'}
                 </span>
               </div>
@@ -105,9 +105,9 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({ onRequestSampl
                       step="25"
                       value={oilLitersDaily}
                       onChange={(e) => setOilLitersDaily(Number(e.target.value))}
-                      className="w-full accent-[#E0581E] bg-[#15191F] h-2 rounded cursor-pointer"
+                      className="w-full accent-[#E0581E] bg-[#141820] h-2.5 rounded-full cursor-pointer"
                     />
-                    <div className="flex justify-between text-[10px] font-mono text-[#A3A6AD] mt-1">
+                    <div className="flex justify-between text-[10px] font-mono text-[#9DA3AF] mt-1">
                       <span>25L</span>
                       <span>100L (Standard Batch)</span>
                       <span>500L</span>
@@ -125,7 +125,7 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({ onRequestSampl
                       max="300"
                       value={oilPricePerLiter}
                       onChange={(e) => setOilPricePerLiter(Number(e.target.value))}
-                      className="w-full px-3 py-2 bg-[#15191F] border border-white/10 text-xs font-mono text-[#F9F8F5] focus:outline-none focus:border-[#E0581E]"
+                      className="w-full px-4 py-2.5 rounded-2xl bg-[#141820] border border-white/10 text-xs font-mono text-[#F9F8F5] focus:outline-none focus:border-[#E0581E] transition-colors"
                     />
                   </div>
 
@@ -139,7 +139,7 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({ onRequestSampl
                       max="30"
                       value={operatingDays}
                       onChange={(e) => setOperatingDays(Number(e.target.value))}
-                      className="w-full accent-[#E0581E] bg-[#15191F] h-2 rounded cursor-pointer"
+                      className="w-full accent-[#E0581E] bg-[#141820] h-2.5 rounded-full cursor-pointer"
                     />
                   </div>
                 </div>
@@ -157,9 +157,9 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({ onRequestSampl
                       step="200"
                       value={milkLitersDaily}
                       onChange={(e) => setMilkLitersDaily(Number(e.target.value))}
-                      className="w-full accent-[#C88E3E] bg-[#15191F] h-2 rounded cursor-pointer"
+                      className="w-full accent-[#C88E3E] bg-[#141820] h-2.5 rounded-full cursor-pointer"
                     />
-                    <div className="flex justify-between text-[10px] font-mono text-[#A3A6AD] mt-1">
+                    <div className="flex justify-between text-[10px] font-mono text-[#9DA3AF] mt-1">
                       <span>200L</span>
                       <span>1,000L</span>
                       <span>5,000L</span>
@@ -169,7 +169,7 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({ onRequestSampl
 
                   <div>
                     <label className="block text-xs font-mono text-[#F9F8F5]/80 mb-2">
-                      Wholesale/Selling Price of Paneer per kg: <strong className="text-[#E5B25D]">₹{paneerPricePerKg}</strong>
+                      Wholesale Price of Paneer per kg: <strong className="text-[#E5B25D]">₹{paneerPricePerKg}</strong>
                     </label>
                     <input
                       type="number"
@@ -177,7 +177,7 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({ onRequestSampl
                       max="600"
                       value={paneerPricePerKg}
                       onChange={(e) => setPaneerPricePerKg(Number(e.target.value))}
-                      className="w-full px-3 py-2 bg-[#15191F] border border-white/10 text-xs font-mono text-[#F9F8F5] focus:outline-none focus:border-[#C88E3E]"
+                      className="w-full px-4 py-2.5 rounded-2xl bg-[#141820] border border-white/10 text-xs font-mono text-[#F9F8F5] focus:outline-none focus:border-[#C88E3E] transition-colors"
                     />
                   </div>
 
@@ -191,26 +191,26 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({ onRequestSampl
                       max="30"
                       value={operatingDays}
                       onChange={(e) => setOperatingDays(Number(e.target.value))}
-                      className="w-full accent-[#C88E3E] bg-[#15191F] h-2 rounded cursor-pointer"
+                      className="w-full accent-[#C88E3E] bg-[#141820] h-2.5 rounded-full cursor-pointer"
                     />
                   </div>
                 </div>
               )}
             </div>
 
-            <div className="p-3 bg-[#15191F] border border-white/[0.06] text-[11px] font-mono text-[#A3A6AD]">
+            <div className="p-3.5 rounded-2xl bg-white/[0.02] border border-white/5 text-[11px] font-mono text-[#9DA3AF]">
               Trial verification protocol: Formulations benchmarked across commercial South Indian processing units.
             </div>
           </div>
 
-          {/* Right Results & Impact Dashboard (6 cols) */}
-          <div className="lg:col-span-6 p-6 sm:p-8 bg-[#08090A]/95 backdrop-blur-sm border border-white/[0.08] flex flex-col justify-between space-y-6 shadow-xl">
+          {/* Right Results & Impact Dashboard (6 cols) in Curved Glass Console */}
+          <div className="lg:col-span-6 p-6 sm:p-8 rounded-3xl bg-[#070809]/80 backdrop-blur-2xl border border-white/10 flex flex-col justify-between space-y-6 shadow-2xl">
             <div>
               <div className="flex items-center justify-between pb-4 border-b border-white/[0.08]">
-                <span className="font-mono text-xs uppercase tracking-widest text-[#E5B25D]">
-                  // Projected Financial & Yield Output
+                <span className="font-mono text-xs uppercase tracking-widest text-[#E5B25D] px-3 py-1 rounded-full bg-[#E5B25D]/10 border border-[#E5B25D]/20">
+                  Projected Financial & Yield Output
                 </span>
-                <span className="inline-flex items-center gap-1 text-xs font-mono text-[#E0581E]">
+                <span className="inline-flex items-center gap-1.5 text-xs font-mono text-[#E0581E]">
                   <TrendingUp className="w-3.5 h-3.5" />
                   <span>Direct Bottomline Impact</span>
                 </span>
@@ -218,44 +218,44 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({ onRequestSampl
 
               {activeTab === 'xtendra' ? (
                 <div className="mt-6 space-y-6">
-                  {/* Big Number Monthly Savings */}
-                  <div className="p-5 bg-[#15191F] border border-[#E0581E]/30 space-y-1">
-                    <span className="font-mono text-[11px] uppercase tracking-wider text-[#A3A6AD]">
+                  {/* Big Number Monthly Savings in Curved Glowing Pod */}
+                  <div className="p-6 rounded-3xl bg-gradient-to-br from-[#E0581E]/15 via-white/[0.02] to-transparent border border-[#E0581E]/30 space-y-1.5 shadow-xl">
+                    <span className="font-mono text-[11px] uppercase tracking-wider text-[#9DA3AF]">
                       Estimated Monthly Oil Cost Saved
                     </span>
                     <div className="font-display text-4xl sm:text-5xl font-bold text-[#E5B25D]">
                       ₹{monthlyFinancialSavings.toLocaleString('en-IN')}
                     </div>
-                    <p className="text-xs text-[#A3A6AD] font-sans">
+                    <p className="text-xs text-[#9DA3AF] font-sans">
                       Equivalent to <strong className="text-[#F9F8F5]">{monthlyOilSavedLiters.toLocaleString('en-IN')} Liters</strong> of cooking oil saved monthly.
                     </p>
                   </div>
 
-                  {/* Operational Ledger Grid */}
+                  {/* Operational Ledger Grid with Rounded Micro-Tiles */}
                   <div className="grid grid-cols-2 gap-3 font-mono text-xs">
-                    <div className="p-3.5 bg-[#0F1216] border border-white/[0.06]">
-                      <span className="text-[#A3A6AD] text-[10px] uppercase block">Daily Oil Saved</span>
+                    <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-[#E0581E]/30 transition-colors">
+                      <span className="text-[#9DA3AF] text-[10px] uppercase block">Daily Oil Saved</span>
                       <span className="text-lg font-bold text-[#F9F8F5] mt-1 block">
                         {dailyOilSavedLiters.toFixed(1)} L / day
                       </span>
                     </div>
 
-                    <div className="p-3.5 bg-[#0F1216] border border-white/[0.06]">
-                      <span className="text-[#A3A6AD] text-[10px] uppercase block">Daily Xtendra Dosage</span>
+                    <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-[#E0581E]/30 transition-colors">
+                      <span className="text-[#9DA3AF] text-[10px] uppercase block">Daily Xtendra Dosage</span>
                       <span className="text-lg font-bold text-[#E0581E] mt-1 block">
                         {dailyXtendraRequiredGrams} grams
                       </span>
                     </div>
 
-                    <div className="p-3.5 bg-[#0F1216] border border-white/[0.06]">
-                      <span className="text-[#A3A6AD] text-[10px] uppercase block">Oil Absorption Drop</span>
+                    <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-[#E0581E]/30 transition-colors">
+                      <span className="text-[#9DA3AF] text-[10px] uppercase block">Oil Absorption Drop</span>
                       <span className="text-lg font-bold text-[#E5B25D] mt-1 block">
                         -10% to -15%
                       </span>
                     </div>
 
-                    <div className="p-3.5 bg-[#0F1216] border border-white/[0.06]">
-                      <span className="text-[#A3A6AD] text-[10px] uppercase block">Packaging Options</span>
+                    <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-[#E0581E]/30 transition-colors">
+                      <span className="text-[#9DA3AF] text-[10px] uppercase block">Packaging Options</span>
                       <span className="text-sm font-bold text-[#F9F8F5] mt-1 block">
                         1L | 5L | 25L Cans
                       </span>
@@ -264,44 +264,44 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({ onRequestSampl
                 </div>
               ) : (
                 <div className="mt-6 space-y-6">
-                  {/* Big Number Extra Revenue */}
-                  <div className="p-5 bg-[#15191F] border border-[#C88E3E]/30 space-y-1">
-                    <span className="font-mono text-[11px] uppercase tracking-wider text-[#A3A6AD]">
+                  {/* Big Number Extra Revenue in Curved Glowing Pod */}
+                  <div className="p-6 rounded-3xl bg-gradient-to-br from-[#C88E3E]/15 via-white/[0.02] to-transparent border border-[#C88E3E]/30 space-y-1.5 shadow-xl">
+                    <span className="font-mono text-[11px] uppercase tracking-wider text-[#9DA3AF]">
                       Estimated Monthly Revenue Increase
                     </span>
                     <div className="font-display text-4xl sm:text-5xl font-bold text-[#E5B25D]">
                       ₹{extraMonthlyRevenue.toLocaleString('en-IN')}
                     </div>
-                    <p className="text-xs text-[#A3A6AD] font-sans">
+                    <p className="text-xs text-[#9DA3AF] font-sans">
                       Yields an extra <strong className="text-[#F9F8F5]">{extraMonthlyPaneerKg.toLocaleString('en-IN')} kg</strong> of finished paneer every month.
                     </p>
                   </div>
 
-                  {/* Operational Ledger Grid */}
+                  {/* Operational Ledger Grid with Rounded Micro-Tiles */}
                   <div className="grid grid-cols-2 gap-3 font-mono text-xs">
-                    <div className="p-3.5 bg-[#0F1216] border border-white/[0.06]">
-                      <span className="text-[#A3A6AD] text-[10px] uppercase block">Daily Extra Paneer</span>
+                    <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-[#C88E3E]/30 transition-colors">
+                      <span className="text-[#9DA3AF] text-[10px] uppercase block">Daily Extra Paneer</span>
                       <span className="text-lg font-bold text-[#F9F8F5] mt-1 block">
                         +{extraDailyPaneerKg} kg / day
                       </span>
                     </div>
 
-                    <div className="p-3.5 bg-[#0F1216] border border-white/[0.06]">
-                      <span className="text-[#A3A6AD] text-[10px] uppercase block">EZENTIAL Dosage</span>
+                    <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-[#C88E3E]/30 transition-colors">
+                      <span className="text-[#9DA3AF] text-[10px] uppercase block">EZENTIAL Dosage</span>
                       <span className="text-lg font-bold text-[#C88E3E] mt-1 block">
                         {ezentialDosageDailyKg} kg / day
                       </span>
                     </div>
 
-                    <div className="p-3.5 bg-[#0F1216] border border-white/[0.06]">
-                      <span className="text-[#A3A6AD] text-[10px] uppercase block">Yield Surge</span>
+                    <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-[#C88E3E]/30 transition-colors">
+                      <span className="text-[#9DA3AF] text-[10px] uppercase block">Yield Surge</span>
                       <span className="text-lg font-bold text-[#E5B25D] mt-1 block">
                         +18% to +20%
                       </span>
                     </div>
 
-                    <div className="p-3.5 bg-[#0F1216] border border-white/[0.06]">
-                      <span className="text-[#A3A6AD] text-[10px] uppercase block">Texture Quality</span>
+                    <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-[#C88E3E]/30 transition-colors">
+                      <span className="text-[#9DA3AF] text-[10px] uppercase block">Texture Quality</span>
                       <span className="text-sm font-bold text-[#F9F8F5] mt-1 block">
                         Soft & Elastic Sponge
                       </span>
@@ -311,7 +311,7 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({ onRequestSampl
               )}
             </div>
 
-            {/* Bottom CTA */}
+            {/* Bottom CTA Pill Button */}
             <div className="pt-4 border-t border-white/[0.08]">
               <button
                 onClick={() => {
@@ -319,10 +319,10 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({ onRequestSampl
                     onRequestSample(activeTab === 'xtendra' ? 'Xtendra 06 Oil Extender' : 'EZENTIAL 4001 Paneer Coagulant');
                   }
                 }}
-                className="w-full py-3 bg-[#E0581E] hover:bg-[#F57E25] text-[#08090A] font-sans text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                className="w-full py-3.5 rounded-full bg-gradient-to-r from-[#E0581E] to-[#F57E25] hover:brightness-110 text-[#070809] font-sans text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer shadow-lg shadow-[#E0581E]/30 hover:scale-102"
               >
                 <span>Request Trial Sample For {activeTab === 'xtendra' ? 'Xtendra 06' : 'EZENTIAL 4001'}</span>
-                <ArrowRight className="w-4 h-4 text-[#08090A]" />
+                <ArrowRight className="w-4 h-4 text-[#070809]" />
               </button>
             </div>
           </div>

@@ -81,9 +81,9 @@ export const FlyerGallery: React.FC = () => {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
   return (
-    <section id="flyers" className="relative py-24 sm:py-32 bg-[#08090A] border-t border-white/[0.08] overflow-hidden">
-      {/* Subtle Background Glow */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#E0581E]/8 rounded-full blur-3xl pointer-events-none -translate-y-1/2" />
+    <section id="flyers" className="relative py-24 sm:py-32 bg-[#070809] border-t border-white/[0.08] overflow-hidden">
+      {/* Subtle Glowing Background Mesh */}
+      <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-[#E0581E]/10 rounded-full blur-3xl pointer-events-none -translate-y-1/2" />
       
       <div className="container-editorial relative z-10">
         <SectionHeader
@@ -104,14 +104,14 @@ export const FlyerGallery: React.FC = () => {
                 <div
                   key={flyer.id}
                   onClick={() => setSelectedFlyer(flyer)}
-                  className={`p-4 sm:p-5 border transition-all duration-300 cursor-pointer flex items-center gap-4 ${
+                  className={`p-4 sm:p-5 rounded-3xl border transition-all duration-300 cursor-pointer flex items-center gap-4 ${
                     isActive
-                      ? 'bg-[#0F1216] border-[#E0581E] shadow-xl translate-x-1.5'
-                      : 'bg-[#0A0C0E] border-white/[0.06] hover:border-white/20 hover:bg-[#0F1216]/50'
+                      ? 'bg-[#0E1116] border-[#E0581E] shadow-2xl translate-x-2 scale-[1.02]'
+                      : 'bg-white/[0.02] backdrop-blur-md border-white/[0.08] hover:border-white/20 hover:bg-white/[0.05]'
                   }`}
                 >
                   {/* Thumbnail */}
-                  <div className="w-16 h-20 shrink-0 overflow-hidden bg-[#08090A] border border-white/10 relative group">
+                  <div className="w-16 h-20 shrink-0 rounded-2xl overflow-hidden bg-[#070809] border border-white/10 relative group shadow-inner">
                     <img
                       src={flyer.imageSrc}
                       alt={flyer.title}
@@ -121,13 +121,13 @@ export const FlyerGallery: React.FC = () => {
 
                   {/* Meta */}
                   <div className="flex-grow space-y-1">
-                    <span className="font-mono text-[10px] uppercase text-[#E0581E] tracking-wider font-semibold">
+                    <span className="font-mono text-[10px] uppercase text-[#E0581E] tracking-wider font-semibold px-2 py-0.5 rounded-full bg-[#E0581E]/10 border border-[#E0581E]/20 inline-block">
                       {flyer.category}
                     </span>
                     <h4 className="font-serif text-base sm:text-lg font-bold text-[#F9F8F5] leading-snug">
                       {flyer.title}
                     </h4>
-                    <p className="text-xs text-[#A3A6AD] line-clamp-1 font-mono">
+                    <p className="text-xs text-[#9DA3AF] line-clamp-1 font-mono">
                       {flyer.dosage}
                     </p>
                   </div>
@@ -136,13 +136,13 @@ export const FlyerGallery: React.FC = () => {
             })}
           </div>
 
-          {/* Right: High-Res Interactive Viewer (7 cols) */}
-          <div className="lg:col-span-7 bg-[#0F1216] border border-white/[0.08] p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-2xl">
+          {/* Right: High-Res Interactive Viewer (7 cols) in Rounded Glass Card */}
+          <div className="lg:col-span-7 rounded-3xl bg-[#0E1116]/80 backdrop-blur-2xl border border-white/10 p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-2xl">
             
             {/* Top Toolbar */}
             <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-white/[0.08]">
               <div>
-                <span className="font-mono text-xs text-[#C88E3E] uppercase tracking-widest block">
+                <span className="font-mono text-xs text-[#E5B25D] uppercase tracking-widest block">
                   // Selected Technical Sheet
                 </span>
                 <h3 className="font-serif text-2xl font-bold text-[#F9F8F5] mt-1">
@@ -153,7 +153,7 @@ export const FlyerGallery: React.FC = () => {
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => setIsLightboxOpen(true)}
-                  className="px-3 py-1.5 bg-[#15191F] hover:bg-[#1C2027] border border-white/10 text-xs font-mono text-[#F9F8F5] flex items-center gap-1.5 transition-colors cursor-pointer"
+                  className="px-4 py-2 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-xs font-mono text-[#F9F8F5] flex items-center gap-1.5 transition-all cursor-pointer hover:scale-105"
                 >
                   <Maximize2 className="w-3.5 h-3.5 text-[#E5B25D]" />
                   <span>Full Screen</span>
@@ -162,7 +162,7 @@ export const FlyerGallery: React.FC = () => {
                 <a
                   href={selectedFlyer.pdfUrl}
                   download
-                  className="px-3 py-1.5 bg-[#E0581E] hover:bg-[#F57E25] text-[#08090A] text-xs font-sans font-bold uppercase tracking-wider flex items-center gap-1.5 transition-colors cursor-pointer"
+                  className="px-4 py-2 rounded-full bg-gradient-to-r from-[#E0581E] to-[#F57E25] hover:brightness-110 text-[#070809] text-xs font-sans font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all cursor-pointer shadow-md shadow-[#E0581E]/25 hover:scale-105"
                 >
                   <Download className="w-3.5 h-3.5" />
                   <span>PDF Sheet</span>
@@ -170,18 +170,18 @@ export const FlyerGallery: React.FC = () => {
               </div>
             </div>
 
-            {/* Visual Display Container with Exact Fit */}
+            {/* Visual Display Container with Exact Fit & Rounded Corners */}
             <div
               onClick={() => setIsLightboxOpen(true)}
-              className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-[#08090A] border border-white/10 group cursor-zoom-in"
+              className="relative aspect-[16/10] sm:aspect-[16/9] w-full rounded-2xl overflow-hidden bg-[#070809] border border-white/10 group cursor-zoom-in shadow-inner"
             >
               <img
                 src={selectedFlyer.imageSrc}
                 alt={selectedFlyer.title}
                 className="w-full h-full object-contain object-center transition-transform duration-500 group-hover:scale-102"
               />
-              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span className="px-4 py-2 bg-[#08090A]/90 border border-white/20 text-xs font-mono text-[#F9F8F5] flex items-center gap-2 shadow-xl">
+              <div className="absolute inset-0 bg-black/25 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span className="px-5 py-2.5 rounded-full bg-[#070809]/90 backdrop-blur-md border border-white/20 text-xs font-mono text-[#F9F8F5] flex items-center gap-2 shadow-2xl">
                   <Eye className="w-4 h-4 text-[#E0581E]" />
                   <span>Click to Zoom High-Res</span>
                 </span>
@@ -190,17 +190,17 @@ export const FlyerGallery: React.FC = () => {
 
             {/* Specifications & Dosage Details */}
             <div className="space-y-3 pt-2">
-              <div className="p-3 bg-[#08090A] border border-white/[0.06] font-mono text-xs text-[#E5B25D]">
+              <div className="p-3.5 rounded-2xl bg-white/[0.02] border border-white/5 font-mono text-xs text-[#E5B25D]">
                 <strong>Standard Industrial Dosage:</strong> {selectedFlyer.dosage}
               </div>
 
               <div className="space-y-1.5">
-                <span className="font-mono text-xs uppercase tracking-wider text-[#A3A6AD] block">
+                <span className="font-mono text-xs uppercase tracking-wider text-[#9DA3AF] block">
                   Key Formulation Benefits:
                 </span>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-sans text-[#F9F8F5]/80">
                   {selectedFlyer.highlights.map((h, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
+                    <li key={idx} className="flex items-start gap-2 p-2 rounded-xl bg-white/[0.02] border border-white/5">
                       <ShieldCheck className="w-3.5 h-3.5 text-[#E0581E] shrink-0 mt-0.5" />
                       <span>{h}</span>
                     </li>
@@ -215,7 +215,7 @@ export const FlyerGallery: React.FC = () => {
       {/* High-Res Full-Screen Lightbox Modal */}
       {isLightboxOpen && (
         <div
-          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex flex-col justify-between p-4 sm:p-8 animate-fadeIn"
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex flex-col justify-between p-4 sm:p-8 animate-fadeIn"
           role="dialog"
           aria-modal="true"
         >
@@ -234,7 +234,7 @@ export const FlyerGallery: React.FC = () => {
               <a
                 href={selectedFlyer.pdfUrl}
                 download
-                className="px-3.5 py-2 bg-[#E0581E] text-[#08090A] font-sans text-xs font-bold uppercase tracking-wider flex items-center gap-1.5"
+                className="px-4 py-2 rounded-full bg-[#E0581E] text-[#070809] font-sans text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-lg"
               >
                 <Download className="w-4 h-4" />
                 <span>Download Dossier</span>
@@ -242,7 +242,7 @@ export const FlyerGallery: React.FC = () => {
 
               <button
                 onClick={() => setIsLightboxOpen(false)}
-                className="p-2 text-[#F9F8F5] border border-white/20 hover:border-[#E0581E] transition-colors cursor-pointer"
+                className="p-2 rounded-full bg-white/10 text-[#F9F8F5] border border-white/20 hover:border-[#E0581E] transition-colors cursor-pointer"
                 aria-label="Close Lightbox"
               >
                 <X className="w-6 h-6 text-[#E0581E]" />
@@ -255,12 +255,12 @@ export const FlyerGallery: React.FC = () => {
             <img
               src={selectedFlyer.imageSrc}
               alt={selectedFlyer.title}
-              className="max-h-[78vh] max-w-full object-contain shadow-2xl border border-white/10"
+              className="max-h-[78vh] max-w-full object-contain shadow-2xl rounded-2xl border border-white/10"
             />
           </div>
 
           {/* Bottom Caption */}
-          <div className="text-center font-mono text-xs text-[#A3A6AD] pt-2 border-t border-white/10">
+          <div className="text-center font-mono text-xs text-[#9DA3AF] pt-2 border-t border-white/10">
             Avighna Speciality Ingredients Pvt Ltd • Dosage: {selectedFlyer.dosage}
           </div>
         </div>

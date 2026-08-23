@@ -44,15 +44,15 @@ export const SampleModal: React.FC<SampleModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn"
       role="dialog"
       aria-modal="true"
     >
-      <div className="relative w-full max-w-xl bg-[#0F1216] border border-white/15 p-6 sm:p-8 shadow-2xl overflow-y-auto max-h-[90vh]">
+      <div className="relative w-full max-w-xl rounded-3xl bg-[#0E1116]/95 backdrop-blur-2xl border border-white/15 p-6 sm:p-8 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] overflow-y-auto max-h-[90vh]">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 text-[#A3A6AD] hover:text-[#F9F8F5] hover:bg-white/[0.06] transition-colors cursor-pointer"
+          className="absolute top-5 right-5 p-2 rounded-full text-[#9DA3AF] hover:text-[#F9F8F5] bg-white/[0.04] hover:bg-white/[0.08] transition-colors cursor-pointer"
           aria-label="Close Sample Request Modal"
         >
           <X className="w-5 h-5" />
@@ -64,10 +64,10 @@ export const SampleModal: React.FC<SampleModalProps> = ({
             <h3 className="font-serif text-2xl font-bold text-[#F9F8F5]">
               Sample Request Dispatched
             </h3>
-            <p className="text-xs sm:text-sm text-[#A3A6AD] max-w-sm mx-auto font-sans">
+            <p className="text-xs sm:text-sm text-[#9DA3AF] max-w-sm mx-auto font-sans">
               Thank you, <strong className="text-[#F9F8F5]">{formData.fullName}</strong>. Ashita and our formulation team will arrange samples of <strong className="text-[#E0581E]">{formData.productName}</strong> and contact you at <strong className="text-[#F9F8F5]">{formData.phone}</strong>.
             </p>
-            <div className="pt-2 font-mono text-xs text-[#C88E3E]">
+            <div className="pt-2 font-mono text-xs text-[#E5B25D]">
               Direct Hotline: +91 94833 89387 / ashita@ganeshinc.org
             </div>
             <button
@@ -75,7 +75,7 @@ export const SampleModal: React.FC<SampleModalProps> = ({
                 setSubmitted(false);
                 onClose();
               }}
-              className="mt-4 px-5 py-2.5 bg-[#E0581E] text-[#08090A] text-xs font-bold uppercase tracking-wider cursor-pointer"
+              className="mt-4 px-6 py-2.5 rounded-full bg-[#E0581E] text-[#070809] text-xs font-bold uppercase tracking-wider cursor-pointer hover:scale-105 transition-transform"
             >
               Close
             </button>
@@ -92,27 +92,27 @@ export const SampleModal: React.FC<SampleModalProps> = ({
             </div>
 
             <div>
-              <label className="block text-xs font-mono text-[#A3A6AD] mb-1">
+              <label className="block text-xs font-mono text-[#9DA3AF] mb-1">
                 Product of Interest
               </label>
               <select
                 value={formData.productName}
                 onChange={(e) => setFormData({ ...formData, productName: e.target.value })}
-                className="w-full px-3 py-2 bg-[#08090A] border border-white/10 text-xs font-mono text-[#F9F8F5] focus:outline-none focus:border-[#E0581E]"
+                className="w-full px-4 py-2.5 rounded-2xl bg-black/40 border border-white/10 text-xs font-mono text-[#F9F8F5] focus:outline-none focus:border-[#E0581E]"
               >
                 {VERIFIED_PRODUCTS.map((prod) => (
-                  <option key={prod.id} value={prod.name}>
+                  <option key={prod.id} value={prod.name} className="bg-[#0E1116]">
                     {prod.name}
                   </option>
                 ))}
-                <option value="Custom Flavour System">Custom Flavour System</option>
-                <option value="General Institutional Inquiry">General Institutional Inquiry</option>
+                <option value="Custom Flavour System" className="bg-[#0E1116]">Custom Flavour System</option>
+                <option value="General Institutional Inquiry" className="bg-[#0E1116]">General Institutional Inquiry</option>
               </select>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-mono text-[#A3A6AD] mb-1">
+                <label className="block text-xs font-mono text-[#9DA3AF] mb-1">
                   Full Name *
                 </label>
                 <input
@@ -121,12 +121,12 @@ export const SampleModal: React.FC<SampleModalProps> = ({
                   placeholder="e.g. Ramesh Kumar"
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                  className="w-full px-3 py-2 bg-[#08090A] border border-white/10 text-xs font-sans text-[#F9F8F5] focus:outline-none focus:border-[#E0581E]"
+                  className="w-full px-4 py-2.5 rounded-2xl bg-black/40 border border-white/10 text-xs font-sans text-[#F9F8F5] focus:outline-none focus:border-[#E0581E]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-[#A3A6AD] mb-1">
+                <label className="block text-xs font-mono text-[#9DA3AF] mb-1">
                   Company / Brand Name
                 </label>
                 <input
@@ -134,14 +134,14 @@ export const SampleModal: React.FC<SampleModalProps> = ({
                   placeholder="e.g. Premier Foods"
                   value={formData.companyName}
                   onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                  className="w-full px-3 py-2 bg-[#08090A] border border-white/10 text-xs font-sans text-[#F9F8F5] focus:outline-none focus:border-[#E0581E]"
+                  className="w-full px-4 py-2.5 rounded-2xl bg-black/40 border border-white/10 text-xs font-sans text-[#F9F8F5] focus:outline-none focus:border-[#E0581E]"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-mono text-[#A3A6AD] mb-1">
+                <label className="block text-xs font-mono text-[#9DA3AF] mb-1">
                   Corporate Email *
                 </label>
                 <input
@@ -150,12 +150,12 @@ export const SampleModal: React.FC<SampleModalProps> = ({
                   placeholder="e.g. ramesh@company.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-3 py-2 bg-[#08090A] border border-white/10 text-xs font-sans text-[#F9F8F5] focus:outline-none focus:border-[#E0581E]"
+                  className="w-full px-4 py-2.5 rounded-2xl bg-black/40 border border-white/10 text-xs font-sans text-[#F9F8F5] focus:outline-none focus:border-[#E0581E]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-[#A3A6AD] mb-1">
+                <label className="block text-xs font-mono text-[#9DA3AF] mb-1">
                   Phone / WhatsApp Number *
                 </label>
                 <input
@@ -164,13 +164,13 @@ export const SampleModal: React.FC<SampleModalProps> = ({
                   placeholder="e.g. +91 98450 XXXXX"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full px-3 py-2 bg-[#08090A] border border-white/10 text-xs font-sans text-[#F9F8F5] focus:outline-none focus:border-[#E0581E]"
+                  className="w-full px-4 py-2.5 rounded-2xl bg-black/40 border border-white/10 text-xs font-sans text-[#F9F8F5] focus:outline-none focus:border-[#E0581E]"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-mono text-[#A3A6AD] mb-1">
+              <label className="block text-xs font-mono text-[#9DA3AF] mb-1">
                 Trial Requirements / Batch Size
               </label>
               <textarea
@@ -178,13 +178,13 @@ export const SampleModal: React.FC<SampleModalProps> = ({
                 placeholder="Application notes (e.g. 75L snack fryer trial, paneer batch size)..."
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full px-3 py-2 bg-[#08090A] border border-white/10 text-xs font-sans text-[#F9F8F5] focus:outline-none focus:border-[#E0581E]"
+                className="w-full px-4 py-2.5 rounded-2xl bg-black/40 border border-white/10 text-xs font-sans text-[#F9F8F5] focus:outline-none focus:border-[#E0581E]"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full py-3 bg-[#E0581E] hover:bg-[#F57E25] text-[#08090A] font-sans text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer transition-colors"
+              className="w-full py-3.5 rounded-full bg-gradient-to-r from-[#E0581E] to-[#F57E25] hover:brightness-110 text-[#070809] font-sans text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer transition-all shadow-lg shadow-[#E0581E]/30 hover:scale-102"
             >
               <span>Submit Request For Sample Dispatch</span>
               <ArrowUpRight className="w-4 h-4" />

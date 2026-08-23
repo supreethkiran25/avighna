@@ -5,7 +5,7 @@ import { Award, Star, Building } from 'lucide-react';
 
 export const TrustSection: React.FC = () => {
   return (
-    <section id="trust" className="relative py-24 sm:py-32 bg-[#0F1216] border-t border-white/[0.08] overflow-hidden">
+    <section id="trust" className="relative py-24 sm:py-32 bg-[#0E1116] border-t border-white/[0.08] overflow-hidden">
       {/* Ambient AI Molecular Background Texture */}
       <div
         className="absolute inset-0 bg-cover bg-center opacity-10 mix-blend-screen pointer-events-none"
@@ -21,19 +21,19 @@ export const TrustSection: React.FC = () => {
           description="Proven delivery track record across South India’s premier food processing, dairy manufacturing, and pharmaceutical conglomerates."
         />
 
-        {/* Major Accolade Spotlight: UNILEVER "The Best Vendor" Award */}
-        <div className="mt-12 p-8 sm:p-10 bg-[#08090A]/95 border-2 border-[#C88E3E]/60 relative overflow-hidden shadow-2xl backdrop-blur-sm">
+        {/* Major Accolade Spotlight: UNILEVER "The Best Vendor" Award in Curved Glass Showcase */}
+        <div className="mt-12 p-8 sm:p-10 rounded-3xl bg-[#070809]/90 border-2 border-[#C88E3E]/60 relative overflow-hidden shadow-2xl backdrop-blur-2xl">
           {/* Subtle Golden Botanical Essence AI Artwork Overlay */}
           <div
             className="absolute top-0 right-0 w-1/2 h-full bg-cover bg-center opacity-15 mix-blend-screen pointer-events-none"
             style={{ backgroundImage: `url('/assets/ai_ingredient_essence.jpg')` }}
           />
 
-          <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-[#C88E3E]/15 to-transparent rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-[#C88E3E]/20 to-transparent rounded-full blur-3xl pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             <div className="lg:col-span-8 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#15191F] border border-[#C88E3E]/40 font-mono text-xs text-[#E5B25D] uppercase tracking-wider font-semibold">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-[#C88E3E]/40 font-mono text-xs text-[#E5B25D] uppercase tracking-wider font-semibold shadow-md">
                 <Award className="w-4 h-4 text-[#C88E3E]" />
                 <span>Premier Accolade</span>
               </div>
@@ -46,23 +46,21 @@ export const TrustSection: React.FC = () => {
                 "At M/s. Ganesh Inc. and Avighna, quality isn't just a promise – it's our foundation. Every product we deliver meets stringent industry standards. Our recognition has been reflected through our quality deliverance along with competent pricing to institutional customers."
               </p>
 
-              <div className="pt-2 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs font-mono text-[#A3A6AD]">
-                <span className="text-[#E0581E] font-semibold">12+ Years Partnership</span>
-                <span className="text-white/20">•</span>
-                <span>Zero Supply Disruption</span>
-                <span className="text-white/20">•</span>
-                <span>FSSAI & Global Monograph Audit Ready</span>
+              <div className="pt-2 flex flex-wrap items-center gap-2 text-xs font-mono text-[#9DA3AF]">
+                <span className="px-3 py-1 rounded-full bg-[#E0581E]/10 border border-[#E0581E]/20 text-[#E0581E] font-semibold">12+ Years Partnership</span>
+                <span className="px-3 py-1 rounded-full bg-white/[0.03] border border-white/5">Zero Supply Disruption</span>
+                <span className="px-3 py-1 rounded-full bg-white/[0.03] border border-white/5">FSSAI & Global Monograph Audit Ready</span>
               </div>
             </div>
 
-            <div className="lg:col-span-4 p-6 bg-[#15191F]/90 backdrop-blur-sm border border-white/[0.08] text-center space-y-2 shadow-lg">
-              <span className="font-mono text-[11px] uppercase tracking-widest text-[#C88E3E] block">
+            <div className="lg:col-span-4 p-6 rounded-2xl bg-white/[0.03] backdrop-blur-xl border border-white/10 text-center space-y-2 shadow-xl">
+              <span className="font-mono text-[11px] uppercase tracking-widest text-[#E5B25D] block">
                 // Industry Recognition
               </span>
               <div className="font-serif text-3xl font-bold text-[#F9F8F5]">
                 Hindustan Unilever
               </div>
-              <p className="text-xs text-[#A3A6AD] font-sans">
+              <p className="text-xs text-[#9DA3AF] font-sans">
                 Acknowledged for consistency, quality assurance, and supply chain speed across South India.
               </p>
             </div>
@@ -80,7 +78,7 @@ export const TrustSection: React.FC = () => {
                 Institutional Enterprise Clients
               </h3>
             </div>
-            <p className="font-mono text-xs text-[#A3A6AD]">
+            <p className="font-mono text-xs text-[#9DA3AF]">
               Regular supply partners across Karnataka & South India
             </p>
           </div>
@@ -89,13 +87,13 @@ export const TrustSection: React.FC = () => {
             {INSTITUTIONAL_CLIENTS.map((client) => (
               <div
                 key={client.id}
-                className="p-6 bg-[#08090A]/90 backdrop-blur-sm border border-white/[0.08] hover:border-[#E0581E]/40 transition-all duration-300 space-y-3"
+                className="p-6 rounded-3xl bg-[#070809]/80 backdrop-blur-xl border border-white/10 hover:border-[#E0581E]/40 transition-all duration-300 space-y-3 shadow-lg hover:-translate-y-1"
               >
                 <div className="flex items-center justify-between">
-                  <span className="px-2.5 py-0.5 bg-[#15191F] font-mono text-[10px] uppercase text-[#E5B25D]">
+                  <span className="px-3 py-1 rounded-full bg-white/[0.04] font-mono text-[10px] uppercase text-[#E5B25D] border border-white/5">
                     {client.highlight}
                   </span>
-                  <Building className="w-4 h-4 text-[#A3A6AD]" />
+                  <Building className="w-4 h-4 text-[#9DA3AF]" />
                 </div>
 
                 <h4 className="font-serif text-xl font-bold text-[#F9F8F5]">
@@ -117,7 +115,7 @@ export const TrustSection: React.FC = () => {
         {/* Verified Industrial Client Feedback */}
         <div className="mt-20 pt-12 border-t border-white/[0.08]">
           <div className="mb-8">
-            <span className="font-mono text-xs text-[#C88E3E] uppercase tracking-widest block">
+            <span className="font-mono text-xs text-[#E5B25D] uppercase tracking-widest block">
               // Technical Feedback
             </span>
             <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#F9F8F5] mt-1">
@@ -129,7 +127,7 @@ export const TrustSection: React.FC = () => {
             {VERIFIED_REVIEWS.map((rev) => (
               <div
                 key={rev.id}
-                className="p-7 bg-[#08090A]/90 backdrop-blur-sm border border-white/[0.08] flex flex-col justify-between space-y-4"
+                className="p-7 rounded-3xl bg-[#070809]/80 backdrop-blur-xl border border-white/10 flex flex-col justify-between space-y-4 shadow-lg"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
@@ -138,7 +136,7 @@ export const TrustSection: React.FC = () => {
                         <Star key={i} className="w-3.5 h-3.5 fill-current" />
                       ))}
                     </div>
-                    <span className="px-2.5 py-0.5 bg-[#15191F] font-mono text-[10px] text-[#E5B25D]">
+                    <span className="px-3 py-1 rounded-full bg-white/[0.04] font-mono text-[10px] text-[#E5B25D] border border-white/5">
                       {rev.highlightTag}
                     </span>
                   </div>
@@ -150,8 +148,8 @@ export const TrustSection: React.FC = () => {
 
                 <div className="pt-4 border-t border-white/[0.06] font-mono text-xs space-y-0.5">
                   <span className="text-[#F9F8F5] font-bold block">{rev.author}</span>
-                  <span className="text-[#A3A6AD] text-[11px] block">{rev.roleOrContext}</span>
-                  <span className="text-[#C88E3E] text-[10px] block">{rev.organization}</span>
+                  <span className="text-[#9DA3AF] text-[11px] block">{rev.roleOrContext}</span>
+                  <span className="text-[#E5B25D] text-[10px] block">{rev.organization}</span>
                 </div>
               </div>
             ))}

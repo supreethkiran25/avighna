@@ -14,7 +14,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSampleModal }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+      setIsScrolled(window.scrollY > 25);
 
       const sections = ['overview', 'products', 'flyers', 'calculator', 'ecosystem', 'trust', 'downloads', 'contact'];
       const scrollPos = window.scrollY + 160;
@@ -50,7 +50,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSampleModal }) => {
     const targetId = href.replace('#', '');
     const element = document.getElementById(targetId);
     if (element) {
-      const navOffset = isScrolled ? 72 : 88;
+      const navOffset = isScrolled ? 80 : 96;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navOffset;
       window.scrollTo({
@@ -61,14 +61,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSampleModal }) => {
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-[#08090A]/95 backdrop-blur-md border-b border-white/[0.08] py-3.5 shadow-2xl'
-          : 'bg-gradient-to-b from-[#08090A]/90 via-[#08090A]/40 to-transparent py-5 sm:py-6'
-      }`}
-    >
-      <div className="container-editorial flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3.5 sm:py-5 px-3 sm:px-6">
+      <div
+        className={`max-w-7xl mx-auto transition-all duration-500 rounded-full px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between shadow-2xl ${
+          isScrolled
+            ? 'bg-[#070809]/85 backdrop-blur-2xl border border-white/10 ring-1 ring-white/5'
+            : 'bg-[#0E1116]/60 backdrop-blur-xl border border-white/10'
+        }`}
+      >
         {/* Official Avighna Logo */}
         <a
           href="#overview"
@@ -76,14 +76,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSampleModal }) => {
             e.preventDefault();
             handleLinkClick('#overview');
           }}
-          className="group focus:outline-none focus:ring-1 focus:ring-[#E0581E]"
+          className="group focus:outline-none shrink-0"
           aria-label="Avighna Speciality Ingredients Home"
         >
           <AvighnaLogo size={isScrolled ? 'sm' : 'md'} theme="dark" variant="full" />
         </a>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-6 xl:gap-8" aria-label="Primary Navigation">
+        {/* Desktop Floating Pill Navigation Links */}
+        <nav className="hidden lg:flex items-center gap-1.5 p-1 bg-black/40 backdrop-blur-md rounded-full border border-white/5" aria-label="Primary Navigation">
           {navLinks.map((link) => {
             const sectionId = link.href.replace('#', '');
             const isActive = activeSection === sectionId;
@@ -95,34 +95,31 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSampleModal }) => {
                   e.preventDefault();
                   handleLinkClick(link.href);
                 }}
-                className={`font-sans text-[13px] font-medium tracking-wide transition-all relative py-1 focus:outline-none ${
-                  isActive ? 'text-[#F9F8F5] font-semibold' : 'text-[#F9F8F5]/70 hover:text-[#F9F8F5]'
+                className={`px-3.5 py-1.5 rounded-full text-xs font-sans font-medium tracking-wide transition-all duration-200 cursor-pointer ${
+                  isActive
+                    ? 'bg-[#E0581E] text-[#070809] font-bold shadow-md'
+                    : 'text-[#F9F8F5]/75 hover:text-[#F9F8F5] hover:bg-white/[0.06]'
                 }`}
               >
                 {link.label}
-                <span
-                  className={`absolute bottom-0 left-0 h-[1.5px] bg-[#E0581E] transition-all duration-300 ${
-                    isActive ? 'w-full' : 'w-0 group-hover:w-full'
-                  }`}
-                />
               </a>
             );
           })}
         </nav>
 
-        {/* Action Elements & Direct Contacts */}
-        <div className="flex items-center gap-3.5 sm:gap-5">
-          {/* Direct Phone Desk */}
+        {/* Action Elements & Hotline */}
+        <div className="flex items-center gap-2.5 sm:gap-3.5">
+          {/* Direct Phone Desk Pill */}
           <a
             href={`tel:${COMPANY_PROFILE.phones.primaryRaw}`}
-            className="hidden xl:flex items-center gap-2 font-mono text-xs text-[#F9F8F5]/80 hover:text-[#E0581E] transition-colors py-1.5 px-2.5 border border-white/[0.06] bg-[#0F1216]/60 rounded-none"
+            className="hidden xl:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 hover:border-[#E0581E]/50 font-mono text-xs text-[#F9F8F5]/85 hover:text-[#E0581E] transition-all"
             title="Direct Executive Hotline (Ashita)"
           >
             <Phone className="w-3.5 h-3.5 text-[#E0581E]" />
             <span>{COMPANY_PROFILE.phones.primary}</span>
           </a>
 
-          {/* Request Sample / Inquire CTA */}
+          {/* Request Sample Pill CTA */}
           <button
             onClick={() => {
               if (onOpenSampleModal) {
@@ -131,17 +128,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSampleModal }) => {
                 handleLinkClick('#contact');
               }
             }}
-            className="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 bg-[#E0581E] hover:bg-[#F57E25] text-[#08090A] font-sans text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-sm cursor-pointer"
+            className="hidden sm:inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-[#E0581E] to-[#F57E25] hover:brightness-110 text-[#070809] font-sans text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-lg shadow-[#E0581E]/20 cursor-pointer hover:scale-105"
           >
             <span>Request Samples</span>
-            <ArrowUpRight className="w-3.5 h-3.5 text-[#08090A]" />
+            <ArrowUpRight className="w-3.5 h-3.5 text-[#070809]" />
           </button>
 
           {/* Mobile Menu Trigger */}
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2.5 text-[#F9F8F5] border border-white/10 hover:border-[#E0581E] transition-colors focus:outline-none focus:ring-1 focus:ring-[#E0581E] cursor-pointer"
+            className="lg:hidden p-2 rounded-full bg-white/[0.06] text-[#F9F8F5] border border-white/10 hover:border-[#E0581E] transition-colors cursor-pointer"
             aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
             aria-expanded={mobileMenuOpen}
           >
@@ -157,7 +154,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSampleModal }) => {
       {/* Accessible Mobile Drawer Navigation */}
       {mobileMenuOpen && (
         <div
-          className="fixed inset-0 top-[60px] sm:top-[70px] bg-[#08090A]/98 backdrop-blur-2xl z-40 lg:hidden flex flex-col justify-between p-6 sm:p-8 border-t border-white/10 overflow-y-auto animate-fadeIn"
+          className="fixed inset-x-3 top-20 bg-[#070809]/98 backdrop-blur-3xl z-40 lg:hidden rounded-3xl p-6 sm:p-8 border border-white/15 shadow-2xl overflow-y-auto max-h-[85vh] animate-fadeIn"
           role="dialog"
           aria-modal="true"
           aria-label="Mobile Navigation Drawer"
@@ -172,7 +169,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSampleModal }) => {
               </span>
             </div>
 
-            <nav className="flex flex-col space-y-3">
+            <nav className="flex flex-col space-y-2">
               {navLinks.map((link, idx) => (
                 <a
                   key={link.href}
@@ -181,7 +178,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSampleModal }) => {
                     e.preventDefault();
                     handleLinkClick(link.href);
                   }}
-                  className="flex items-center justify-between py-3.5 px-3 border-b border-white/5 font-serif text-xl sm:text-2xl text-[#F9F8F5] hover:text-[#E0581E] hover:bg-white/[0.02] transition-all rounded"
+                  className="flex items-center justify-between py-3 px-4 rounded-2xl bg-white/[0.02] hover:bg-white/[0.06] border border-white/5 font-serif text-lg text-[#F9F8F5] hover:text-[#E0581E] transition-all"
                 >
                   <span>{link.label}</span>
                   <span className="font-mono text-xs text-[#C88E3E]">0{idx + 1}</span>
@@ -195,7 +192,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSampleModal }) => {
             <div className="grid grid-cols-2 gap-2.5">
               <a
                 href={`tel:${COMPANY_PROFILE.phones.primaryRaw}`}
-                className="flex items-center justify-center gap-2 py-3 bg-[#0F1216] border border-white/10 text-xs font-mono text-[#F9F8F5] hover:border-[#E0581E]"
+                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-xs font-mono text-[#F9F8F5] hover:border-[#E0581E]"
               >
                 <Phone className="w-3.5 h-3.5 text-[#E0581E]" />
                 <span>Call Desk</span>
@@ -205,7 +202,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSampleModal }) => {
                 href={COMPANY_PROFILE.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 py-3 bg-[#0F1216] border border-white/10 text-xs font-mono text-[#25D366] hover:border-[#25D366]"
+                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-xs font-mono text-[#25D366] hover:border-[#25D366]"
               >
                 <MessageSquare className="w-3.5 h-3.5" />
                 <span>WhatsApp</span>
@@ -218,7 +215,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSampleModal }) => {
                 if (onOpenSampleModal) onOpenSampleModal();
                 else handleLinkClick('#contact');
               }}
-              className="w-full py-3.5 bg-[#E0581E] text-[#08090A] text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-[#E0581E] to-[#F57E25] text-[#070809] text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-[#E0581E]/30"
             >
               <span>Request Product Samples & Dossier</span>
               <ArrowUpRight className="w-4 h-4" />

@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="relative bg-[#060708] border-t border-white/10 text-[#F9F8F5] pt-20 pb-12">
+    <footer className="relative bg-[#050607] border-t border-white/10 text-[#F9F8F5] pt-20 pb-12 overflow-hidden">
       <div className="container-editorial">
         {/* Main Footer Layout */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-white/[0.08]">
@@ -18,15 +18,15 @@ export const Footer: React.FC = () => {
           <div className="md:col-span-5 space-y-4">
             <AvighnaLogo size="md" theme="dark" variant="full" />
 
-            <p className="text-xs sm:text-sm text-[#A3A6AD] max-w-sm font-sans font-light leading-relaxed pt-2">
+            <p className="text-xs sm:text-sm text-[#9DA3AF] max-w-sm font-sans font-light leading-relaxed pt-2">
               Premier South Indian manufacturer, supplier, and distributor of specialty food flavours, Gujarat Ambuja starch derivatives, Xtendra 06 frying antioxidants, CHR-HANSEN dairy cultures, and pharmacopoeia excipients.
             </p>
 
             <div className="flex items-center gap-2 pt-1">
-              <span className="px-2.5 py-1 bg-[#111418] border border-[#C88E3E]/40 font-mono text-[10.5px] text-[#E5B25D]">
+              <span className="px-3.5 py-1 rounded-full bg-white/[0.04] border border-[#C88E3E]/40 font-mono text-[10.5px] text-[#E5B25D]">
                 Unilever "Best Vendor" Awardee
               </span>
-              <span className="font-mono text-[11px] text-[#A3A6AD]">
+              <span className="font-mono text-[11px] text-[#9DA3AF]">
                 12+ Years Excellence
               </span>
             </div>
@@ -50,6 +50,11 @@ export const Footer: React.FC = () => {
               <li>
                 <a href="#products" className="text-[#F9F8F5]/70 hover:text-[#E0581E] transition-colors">
                   Specialty Formulations
+                </a>
+              </li>
+              <li>
+                <a href="#flyers" className="text-[#F9F8F5]/70 hover:text-[#E0581E] transition-colors">
+                  Product Flyers Gallery
                 </a>
               </li>
               <li>
@@ -82,7 +87,7 @@ export const Footer: React.FC = () => {
 
           {/* Corporate Location & Direct Desks (4 cols) */}
           <div className="md:col-span-4 space-y-3">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#C88E3E] block">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#E5B25D] block">
               // Formulation HQ & Desks
             </span>
             
@@ -93,7 +98,7 @@ export const Footer: React.FC = () => {
             <div className="pt-3 space-y-2 font-mono text-xs">
               <a
                 href={`tel:${COMPANY_PROFILE.phones.primaryRaw}`}
-                className="flex items-center gap-2 text-[#F9F8F5]/90 hover:text-[#E0581E] transition-colors"
+                className="flex items-center gap-2.5 text-[#F9F8F5]/90 hover:text-[#E0581E] transition-colors p-2 rounded-xl bg-white/[0.02] border border-white/5"
               >
                 <Phone className="w-3.5 h-3.5 text-[#E0581E]" />
                 <span>Ashita: {COMPANY_PROFILE.phones.primary} / +91 70194 77940</span>
@@ -101,7 +106,7 @@ export const Footer: React.FC = () => {
 
               <a
                 href={`tel:${COMPANY_PROFILE.phones.secondaryRaw}`}
-                className="flex items-center gap-2 text-[#F9F8F5]/90 hover:text-[#E0581E] transition-colors"
+                className="flex items-center gap-2.5 text-[#F9F8F5]/90 hover:text-[#E0581E] transition-colors p-2 rounded-xl bg-white/[0.02] border border-white/5"
               >
                 <Phone className="w-3.5 h-3.5 text-[#C88E3E]" />
                 <span>Shashidhar: {COMPANY_PROFILE.phones.secondary}</span>
@@ -109,7 +114,7 @@ export const Footer: React.FC = () => {
 
               <a
                 href={`mailto:${COMPANY_PROFILE.emails.inquiry}`}
-                className="flex items-center gap-2 text-[#A3A6AD] hover:text-[#F9F8F5] transition-colors"
+                className="flex items-center gap-2.5 text-[#9DA3AF] hover:text-[#F9F8F5] transition-colors p-2 rounded-xl bg-white/[0.02] border border-white/5"
               >
                 <Mail className="w-3.5 h-3.5 text-[#E5B25D]" />
                 <span>{COMPANY_PROFILE.emails.inquiry}</span>
@@ -129,10 +134,10 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-6">
-            <span className="text-[#C88E3E]/70 text-[11px]">avighnagroups.com • ganeshinc.org</span>
+            <span className="text-[#E5B25D]/70 text-[11px]">avighnagroups.com • ganeshinc.org</span>
             <button
               onClick={scrollToTop}
-              className="flex items-center gap-1.5 text-[#F9F8F5]/70 hover:text-[#E0581E] transition-colors cursor-pointer"
+              className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-[#F9F8F5]/80 hover:text-[#E0581E] hover:border-[#E0581E]/50 transition-all cursor-pointer hover:scale-105"
               title="Return to top"
             >
               <span>Back to top</span>

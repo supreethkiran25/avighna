@@ -2,19 +2,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-obsidian: #08090A;
-  --color-obsidian-card: #0F1216;
-  --color-obsidian-surface: #15191F;
+  --color-obsidian: #070809;
+  --color-obsidian-card: #0E1116;
+  --color-obsidian-surface: #141820;
   --color-ivory: #F9F8F5;
-  --color-ivory-muted: #A3A6AD;
+  --color-ivory-muted: #9DA3AF;
   --color-amber-brand: #E0581E;
   --color-amber-light: #F57E25;
   --color-gold-brand: #C88E3E;
   --color-gold-light: #E5B25D;
-  --color-charcoal: #1C2027;
+  --color-charcoal: #1A1F26;
   --color-titanium: #6B7A88;
 
-  --font-serif: 'Playfair Display', 'DM Serif Display', 'Cormorant Garamond', Georgia, serif;
+  --font-serif: 'Playfair Display', 'DM Serif Display', Georgia, serif;
   --font-display: 'DM Serif Display', 'Playfair Display', Georgia, serif;
   --font-editorial: 'Cormorant Garamond', 'Playfair Display', serif;
   --font-sans: 'Plus Jakarta Sans', 'Manrope', system-ui, -apple-system, sans-serif;
@@ -23,25 +23,22 @@
 }
 
 :root {
-  --font-serif: 'Playfair Display', 'DM Serif Display', 'Cormorant Garamond', Georgia, serif;
+  --font-serif: 'Playfair Display', 'DM Serif Display', Georgia, serif;
   --font-display: 'DM Serif Display', 'Playfair Display', Georgia, serif;
   --font-editorial: 'Cormorant Garamond', 'Playfair Display', serif;
   --font-sans: 'Plus Jakarta Sans', 'Manrope', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --font-kannada: 'Noto Serif Kannada', sans-serif;
 
-  --color-obsidian: #08090A;
-  --color-obsidian-card: #0F1216;
-  --color-obsidian-surface: #15191F;
+  --color-obsidian: #070809;
+  --color-obsidian-card: #0E1116;
+  --color-obsidian-surface: #141820;
   --color-ivory: #F9F8F5;
-  --color-ivory-muted: #A3A6AD;
+  --color-ivory-muted: #9DA3AF;
   --color-amber-brand: #E0581E;
   --color-amber-light: #F57E25;
   --color-gold-brand: #C88E3E;
   --color-gold-light: #E5B25D;
-  --color-hairline-dark: rgba(255, 255, 255, 0.08);
-  --color-hairline-amber: rgba(224, 88, 30, 0.3);
-  --color-hairline-gold: rgba(200, 142, 62, 0.3);
 }
 
 * {
@@ -51,7 +48,7 @@
 html {
   scroll-behavior: smooth;
   color-scheme: dark;
-  background-color: #08090A;
+  background-color: #070809;
   color: #F9F8F5;
   font-family: var(--font-sans);
 }
@@ -61,25 +58,25 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #08090A;
+  background-color: #070809;
   color: #F9F8F5;
   margin: 0;
   padding: 0;
 }
 
-/* Custom Architectural Scrollbar */
+/* Custom Smooth Glass Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #08090A;
+  background: #070809;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1C2027;
-  border-radius: 3px;
+  background: #1E232B;
+  border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -89,10 +86,10 @@ body {
 /* Text Selection */
 ::selection {
   background-color: var(--color-amber-brand);
-  color: #08090A;
+  color: #070809;
 }
 
-/* Utility Font Classes */
+/* Typography Classes */
 .font-serif {
   font-family: var(--font-serif);
 }
@@ -117,21 +114,47 @@ body {
   font-family: var(--font-kannada);
 }
 
-/* 1px Editorial Hairline Rules */
-.border-hairline {
-  border: 1px solid var(--color-hairline-dark);
+/* Fluid Luxury Glass Panels */
+.glass-panel {
+  background: rgba(14, 17, 22, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
 }
 
-.border-t-hairline {
-  border-top: 1px solid var(--color-hairline-dark);
+.glass-panel-hover {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.border-b-hairline {
-  border-bottom: 1px solid var(--color-hairline-dark);
+.glass-panel-hover:hover {
+  border-color: rgba(224, 88, 30, 0.4);
+  background: rgba(20, 24, 32, 0.85);
+  box-shadow: 0 25px 50px -12px rgba(224, 88, 30, 0.15);
+  transform: translateY(-2px);
 }
 
-.border-hairline-amber {
-  border: 1px solid var(--color-hairline-amber);
+/* Pill Badges & Chips */
+.glass-pill {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+}
+
+.glass-pill:hover {
+  border-color: rgba(224, 88, 30, 0.5);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Fluid Asymmetrical Containers */
+.rounded-asymmetric-lg {
+  border-radius: 2rem 0.75rem 2rem 0.75rem;
+}
+
+.rounded-asymmetric-xl {
+  border-radius: 2.5rem 1rem 2.5rem 1rem;
 }
 
 /* Publication Grid Container */
@@ -165,40 +188,34 @@ body {
   }
 }
 
-/* Editorial Links */
-.link-editorial {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--color-gold-light);
-  position: relative;
-  transition: color 0.3s ease;
+/* Smooth Fade In Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.link-editorial::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background-color: var(--color-amber-brand);
-  transform: scaleX(0);
-  transform-origin: bottom right;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+.animate-fadeIn {
+  animation: fadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.link-editorial:hover {
-  color: #F9F8F5;
+/* Floating Ambient Glow Animation */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
 }
 
-.link-editorial:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
+.animate-floatSlow {
+  animation: floatSlow 8s ease-in-out infinite;
 }
 
 /* No Scrollbar Utility */
@@ -208,22 +225,6 @@ body {
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
-}
-
-/* Subtle Micro-Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fadeIn {
-  animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Respect Reduced Motion */
