@@ -32,8 +32,14 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({ onRequestSampl
   const ezentialDosageDailyKg = (milkLitersDaily * 0.0035).toFixed(2); // 0.35%
 
   return (
-    <section id="calculator" className="py-24 sm:py-32 bg-[#0F1216] border-t border-white/[0.08]">
-      <div className="container-editorial">
+    <section id="calculator" className="relative py-24 sm:py-32 bg-[#0F1216] border-t border-white/[0.08] overflow-hidden">
+      {/* Subtle AI Molecular Atmosphere Layer */}
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-10 mix-blend-screen pointer-events-none"
+        style={{ backgroundImage: `url('/assets/ai_molecular_backdrop.jpg')` }}
+      />
+
+      <div className="container-editorial relative z-10">
         <SectionHeader
           label="Process Engineering // Yield & Savings Simulator"
           title="Calculate Your Production Gain."
@@ -43,7 +49,7 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({ onRequestSampl
 
         {/* Tab Selector */}
         <div className="mt-10 flex items-center justify-center">
-          <div className="inline-flex p-1 bg-[#08090A] border border-white/10">
+          <div className="inline-flex p-1 bg-[#08090A] border border-white/10 shadow-lg">
             <button
               onClick={() => setActiveTab('xtendra')}
               className={`px-5 py-2.5 text-xs font-sans font-bold uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer ${
@@ -74,7 +80,7 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({ onRequestSampl
         <div className="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Left Inputs Box (6 cols) */}
-          <div className="lg:col-span-6 p-6 sm:p-8 bg-[#08090A] border border-white/[0.08] flex flex-col justify-between space-y-6">
+          <div className="lg:col-span-6 p-6 sm:p-8 bg-[#08090A]/95 backdrop-blur-sm border border-white/[0.08] flex flex-col justify-between space-y-6 shadow-xl">
             <div>
               <div className="flex items-center justify-between pb-4 border-b border-white/[0.08]">
                 <span className="font-mono text-xs uppercase tracking-widest text-[#E0581E]">
@@ -198,7 +204,7 @@ export const YieldCalculator: React.FC<YieldCalculatorProps> = ({ onRequestSampl
           </div>
 
           {/* Right Results & Impact Dashboard (6 cols) */}
-          <div className="lg:col-span-6 p-6 sm:p-8 bg-[#08090A] border border-white/[0.08] flex flex-col justify-between space-y-6">
+          <div className="lg:col-span-6 p-6 sm:p-8 bg-[#08090A]/95 backdrop-blur-sm border border-white/[0.08] flex flex-col justify-between space-y-6 shadow-xl">
             <div>
               <div className="flex items-center justify-between pb-4 border-b border-white/[0.08]">
                 <span className="font-mono text-xs uppercase tracking-widest text-[#E5B25D]">

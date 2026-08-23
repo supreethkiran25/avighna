@@ -6,6 +6,10 @@ export const AUTHENTIC_PHOTOGRAPHY = {
     asianApexLogo: '/assets/extracted/Asian_Apex_pdf_img_0.jpg',
     ganeshIncLogo: '/assets/extracted/GANESH_INC_PRODUCTS_pdf_img_0.jpg',
   },
+  aiBackdrops: {
+    ingredientEssence: '/assets/ai_ingredient_essence.jpg',
+    molecularBackdrop: '/assets/ai_molecular_backdrop.jpg',
+  },
   flyers: {
     flavourSeasoningsBanner: '/assets/WhatsApp Image 2026-08-22 at 4.11.46 PM.jpeg',
     xtendraFryerBanner: '/assets/WhatsApp Image 2026-08-22 at 4.11.47 PM.jpeg',

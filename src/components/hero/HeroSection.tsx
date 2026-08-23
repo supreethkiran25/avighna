@@ -1,5 +1,6 @@
 import React from 'react';
 import { COMPANY_PROFILE, VERIFIED_METRICS } from '../../data/companyData';
+import { MolecularAuraBackground } from '../common/MolecularAuraBackground';
 import { ArrowRight, Award, ShieldCheck, Download, Sparkles, MapPin } from 'lucide-react';
 
 interface HeroSectionProps {
@@ -22,13 +23,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenSampleModal }) =
       id="overview"
       className="relative min-h-[92vh] w-full flex flex-col justify-between pt-28 sm:pt-36 lg:pt-40 pb-8 bg-[#08090A] text-[#F9F8F5] overflow-hidden"
     >
-      {/* Cinematic Background Atmosphere with Authentic Ingredient Visuals */}
+      {/* AI Generated Food Science Molecular Aura Background */}
+      <MolecularAuraBackground variant="hero" />
+
+      {/* Deep subtle gradient mesh overlay */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Deep subtle gradient mesh */}
         <div className="absolute top-0 right-0 w-[55vw] h-[55vw] max-w-[800px] max-h-[800px] bg-gradient-to-br from-[#E0581E]/12 via-[#C88E3E]/6 to-transparent rounded-full blur-3xl opacity-60" />
         <div className="absolute bottom-10 left-0 w-[45vw] h-[45vw] max-w-[600px] max-h-[600px] bg-gradient-to-tr from-[#15191F]/90 to-transparent rounded-full blur-2xl opacity-40" />
-
-        {/* 1px Architectural Grid Lines */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_40%,#000_70%,transparent_100%)] opacity-30" />
       </div>
 
@@ -41,12 +42,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenSampleModal }) =
             
             {/* Eyebrow & Unilever Award Badge */}
             <div className="flex flex-wrap items-center gap-3">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#0F1216] border border-[#E0581E]/40 text-[#E0581E] font-mono text-[11px] uppercase tracking-wider font-semibold">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#0F1216]/90 backdrop-blur-md border border-[#E0581E]/40 text-[#E0581E] font-mono text-[11px] uppercase tracking-wider font-semibold shadow-sm">
                 <Sparkles className="w-3.5 h-3.5 text-[#E0581E]" />
                 <span>12+ Years South India</span>
               </div>
 
-              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#0F1216] border border-[#C88E3E]/40 text-[#E5B25D] font-mono text-[11px] uppercase tracking-wider font-medium">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#0F1216]/90 backdrop-blur-md border border-[#C88E3E]/40 text-[#E5B25D] font-mono text-[11px] uppercase tracking-wider font-medium shadow-sm">
                 <Award className="w-3.5 h-3.5 text-[#C88E3E]" />
                 <span>Unilever Best Vendor Awardee</span>
               </div>
@@ -90,14 +91,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenSampleModal }) =
 
               <button
                 onClick={() => scrollToSection('products')}
-                className="px-5 py-3.5 bg-[#0F1216] border border-white/15 hover:border-[#C88E3E] text-[#F9F8F5] font-sans text-xs sm:text-sm font-semibold tracking-wide transition-all flex items-center gap-2 cursor-pointer"
+                className="px-5 py-3.5 bg-[#0F1216]/90 backdrop-blur-sm border border-white/15 hover:border-[#C88E3E] text-[#F9F8F5] font-sans text-xs sm:text-sm font-semibold tracking-wide transition-all flex items-center gap-2 cursor-pointer"
               >
                 <span>Explore Solutions</span>
               </button>
 
               <button
                 onClick={() => scrollToSection('downloads')}
-                className="inline-flex items-center gap-1.5 font-mono text-xs text-[#C88E3E] hover:text-[#F9F8F5] transition-colors py-2"
+                className="inline-flex items-center gap-1.5 font-mono text-xs text-[#C88E3E] hover:text-[#F9F8F5] transition-colors py-2 cursor-pointer"
               >
                 <Download className="w-3.5 h-3.5" />
                 <span>PDF Catalog (3.4 MB)</span>
@@ -119,7 +120,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenSampleModal }) =
 
           {/* Right Column: Hero Visual Dossier Showcase (5 cols) */}
           <div className="lg:col-span-5 relative">
-            <div className="relative border border-white/10 bg-[#0F1216] p-4 sm:p-5 shadow-2xl">
+            <div className="relative border border-white/10 bg-[#0F1216]/90 backdrop-blur-md p-4 sm:p-5 shadow-2xl">
               
               {/* Top Accent Header */}
               <div className="flex items-center justify-between pb-3.5 mb-3 border-b border-white/[0.08] font-mono text-[11px] text-[#A3A6AD]">
@@ -127,7 +128,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenSampleModal }) =
                 <span>Xtendra 06 & Formulations</span>
               </div>
 
-              {/* Primary Visual with Authentic Flyer Graphic */}
+              {/* Primary Visual with Authentic Artwork */}
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#08090A] border border-white/[0.06] group">
                 <img
                   src="/assets/WhatsApp Image 2026-08-22 at 4.11.46 PM.jpeg"
@@ -146,7 +147,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenSampleModal }) =
 
               {/* Secondary Metric Highlights Grid */}
               <div className="mt-4 grid grid-cols-2 gap-3">
-                <div className="p-3 bg-[#15191F] border border-white/[0.06]">
+                <div className="p-3 bg-[#15191F]/90 border border-white/[0.06]">
                   <span className="font-mono text-[10px] uppercase text-[#E0581E] block font-semibold">
                     Xtendra 06 Anti-Oxidant
                   </span>
@@ -158,7 +159,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenSampleModal }) =
                   </p>
                 </div>
 
-                <div className="p-3 bg-[#15191F] border border-white/[0.06]">
+                <div className="p-3 bg-[#15191F]/90 border border-white/[0.06]">
                   <span className="font-mono text-[10px] uppercase text-[#C88E3E] block font-semibold">
                     EZENTIAL 4001 Dairy
                   </span>

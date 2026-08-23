@@ -5,8 +5,14 @@ import { Award, Star, Building } from 'lucide-react';
 
 export const TrustSection: React.FC = () => {
   return (
-    <section id="trust" className="py-24 sm:py-32 bg-[#0F1216] border-t border-white/[0.08]">
-      <div className="container-editorial">
+    <section id="trust" className="relative py-24 sm:py-32 bg-[#0F1216] border-t border-white/[0.08] overflow-hidden">
+      {/* Ambient AI Molecular Background Texture */}
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-10 mix-blend-screen pointer-events-none"
+        style={{ backgroundImage: `url('/assets/ai_molecular_backdrop.jpg')` }}
+      />
+
+      <div className="container-editorial relative z-10">
         {/* Section Header */}
         <SectionHeader
           label="Reputation & Compliance // Institutional Trust"
@@ -16,7 +22,13 @@ export const TrustSection: React.FC = () => {
         />
 
         {/* Major Accolade Spotlight: UNILEVER "The Best Vendor" Award */}
-        <div className="mt-12 p-8 sm:p-10 bg-[#08090A] border-2 border-[#C88E3E]/60 relative overflow-hidden shadow-2xl">
+        <div className="mt-12 p-8 sm:p-10 bg-[#08090A]/95 border-2 border-[#C88E3E]/60 relative overflow-hidden shadow-2xl backdrop-blur-sm">
+          {/* Subtle Golden Botanical Essence AI Artwork Overlay */}
+          <div
+            className="absolute top-0 right-0 w-1/2 h-full bg-cover bg-center opacity-15 mix-blend-screen pointer-events-none"
+            style={{ backgroundImage: `url('/assets/ai_ingredient_essence.jpg')` }}
+          />
+
           <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-[#C88E3E]/15 to-transparent rounded-full blur-3xl pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
@@ -43,7 +55,7 @@ export const TrustSection: React.FC = () => {
               </div>
             </div>
 
-            <div className="lg:col-span-4 p-6 bg-[#15191F] border border-white/[0.08] text-center space-y-2">
+            <div className="lg:col-span-4 p-6 bg-[#15191F]/90 backdrop-blur-sm border border-white/[0.08] text-center space-y-2 shadow-lg">
               <span className="font-mono text-[11px] uppercase tracking-widest text-[#C88E3E] block">
                 // Industry Recognition
               </span>
@@ -77,7 +89,7 @@ export const TrustSection: React.FC = () => {
             {INSTITUTIONAL_CLIENTS.map((client) => (
               <div
                 key={client.id}
-                className="p-6 bg-[#08090A] border border-white/[0.08] hover:border-[#E0581E]/40 transition-all duration-300 space-y-3"
+                className="p-6 bg-[#08090A]/90 backdrop-blur-sm border border-white/[0.08] hover:border-[#E0581E]/40 transition-all duration-300 space-y-3"
               >
                 <div className="flex items-center justify-between">
                   <span className="px-2.5 py-0.5 bg-[#15191F] font-mono text-[10px] uppercase text-[#E5B25D]">
@@ -117,7 +129,7 @@ export const TrustSection: React.FC = () => {
             {VERIFIED_REVIEWS.map((rev) => (
               <div
                 key={rev.id}
-                className="p-7 bg-[#08090A] border border-white/[0.08] flex flex-col justify-between space-y-4"
+                className="p-7 bg-[#08090A]/90 backdrop-blur-sm border border-white/[0.08] flex flex-col justify-between space-y-4"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
