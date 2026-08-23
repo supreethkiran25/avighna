@@ -16,7 +16,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSampleModal }) => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 30);
 
-      const sections = ['overview', 'products', 'calculator', 'ecosystem', 'trust', 'downloads', 'contact'];
+      const sections = ['overview', 'products', 'flyers', 'calculator', 'ecosystem', 'trust', 'downloads', 'contact'];
       const scrollPos = window.scrollY + 160;
 
       for (const sId of sections) {
@@ -38,6 +38,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSampleModal }) => {
 
   const navLinks = [
     { label: 'Solutions', href: '#products' },
+    { label: 'Product Flyers', href: '#flyers' },
     { label: 'Yield Calculator', href: '#calculator' },
     { label: 'Group Ecosystem', href: '#ecosystem' },
     { label: 'Accreditation & Trust', href: '#trust' },
@@ -82,7 +83,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSampleModal }) => {
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center gap-7 xl:gap-9" aria-label="Primary Navigation">
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8" aria-label="Primary Navigation">
           {navLinks.map((link) => {
             const sectionId = link.href.replace('#', '');
             const isActive = activeSection === sectionId;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { COMPANY_PROFILE, VERIFIED_METRICS } from '../../data/companyData';
 import { MolecularAuraBackground } from '../common/MolecularAuraBackground';
+import { AnimatedCounter } from '../common/AnimatedCounter';
 import { ArrowRight, Award, ShieldCheck, Download, Sparkles, MapPin } from 'lucide-react';
 
 interface HeroSectionProps {
@@ -38,7 +39,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenSampleModal }) =
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
           {/* Left Column: Core Positioning & Headline (7 cols) */}
-          <div className="lg:col-span-7 space-y-7">
+          <div className="lg:col-span-7 space-y-7 animate-fadeIn">
             
             {/* Eyebrow & Unilever Award Badge */}
             <div className="flex flex-wrap items-center gap-3">
@@ -90,10 +91,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenSampleModal }) =
               </button>
 
               <button
-                onClick={() => scrollToSection('products')}
+                onClick={() => scrollToSection('flyers')}
                 className="px-5 py-3.5 bg-[#0F1216]/90 backdrop-blur-sm border border-white/15 hover:border-[#C88E3E] text-[#F9F8F5] font-sans text-xs sm:text-sm font-semibold tracking-wide transition-all flex items-center gap-2 cursor-pointer"
               >
-                <span>Explore Solutions</span>
+                <span>View Product Flyers</span>
               </button>
 
               <button
@@ -101,7 +102,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenSampleModal }) =
                 className="inline-flex items-center gap-1.5 font-mono text-xs text-[#C88E3E] hover:text-[#F9F8F5] transition-colors py-2 cursor-pointer"
               >
                 <Download className="w-3.5 h-3.5" />
-                <span>PDF Catalog (3.4 MB)</span>
+                <span>PDF Dossier (3.4 MB)</span>
               </button>
             </div>
 
@@ -129,7 +130,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenSampleModal }) =
               </div>
 
               {/* Primary Visual with Authentic Artwork */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#08090A] border border-white/[0.06] group">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#08090A] border border-white/[0.06] group cursor-pointer" onClick={() => scrollToSection('flyers')}>
                 <img
                   src="/assets/WhatsApp Image 2026-08-22 at 4.11.46 PM.jpeg"
                   alt="Avighna Speciality Ingredients Flavour and Seasoning Solutions"
@@ -152,7 +153,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenSampleModal }) =
                     Xtendra 06 Anti-Oxidant
                   </span>
                   <p className="font-display text-xl font-bold text-[#F9F8F5] mt-0.5">
-                    -5% to -15%
+                    <AnimatedCounter value="-5% to -15%" />
                   </p>
                   <p className="text-[11px] text-[#A3A6AD] leading-tight mt-1">
                     Oil absorption reduction in commercial frying
@@ -164,7 +165,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenSampleModal }) =
                     EZENTIAL 4001 Dairy
                   </span>
                   <p className="font-display text-xl font-bold text-[#F9F8F5] mt-0.5">
-                    +18% to +20%
+                    <AnimatedCounter value="+18% to +20%" />
                   </p>
                   <p className="text-[11px] text-[#A3A6AD] leading-tight mt-1">
                     Higher finished paneer & curd yield
@@ -187,14 +188,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenSampleModal }) =
         </div>
       </div>
 
-      {/* Bottom Metrics Ledger Strip */}
+      {/* Bottom Metrics Ledger Strip with Animated Counters */}
       <div className="relative z-10 border-t border-white/[0.08] bg-[#0A0C0E]/95 backdrop-blur-md mt-6">
         <div className="container-editorial py-6">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
             {VERIFIED_METRICS.map((metric) => (
               <div key={metric.id} className="space-y-1">
                 <div className="font-display text-2xl sm:text-3xl font-bold text-[#F9F8F5] tracking-tight">
-                  {metric.value}
+                  <AnimatedCounter value={metric.value} />
                 </div>
                 <p className="font-mono text-[10.5px] uppercase tracking-wider text-[#C88E3E] font-semibold">
                   {metric.label}

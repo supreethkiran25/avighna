@@ -3,6 +3,7 @@ import { Header } from './components/common/Header';
 import { HeroSection } from './components/hero/HeroSection';
 import { PartnerLogosStrip } from './components/common/PartnerLogos';
 import { ProductCatalog } from './components/products/ProductCatalog';
+import { FlyerGallery } from './components/gallery/FlyerGallery';
 import { YieldCalculator } from './components/calculators/YieldCalculator';
 import { EcosystemSection } from './components/ecosystem/EcosystemSection';
 import { TrustSection } from './components/trust/TrustSection';
@@ -44,6 +45,9 @@ export const App: React.FC = () => {
 
         {/* Interactive Filterable Products & Formulations Catalog */}
         <ProductCatalog onRequestSample={handleRequestSample} />
+
+        {/* Official Product Flyers & Technical Dossier Lightbox Gallery */}
+        <FlyerGallery />
 
         {/* Technical Process Yield & Frying Oil Savings Calculator */}
         <YieldCalculator onRequestSample={handleRequestSample} />
