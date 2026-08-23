@@ -1,0 +1,93 @@
+import { ClientPartner, CustomerReview } from '../types';
+
+export const INSTITUTIONAL_CLIENTS: ClientPartner[] = [
+  {
+    id: 'unilever',
+    name: 'Hindustan Unilever Limited (HUL)',
+    category: 'FMCG & Food Processing',
+    relationship: 'Recipient of "The Best Vendor" Award presented by UNILEVER',
+    highlight: 'Award-Winning Vendor',
+  },
+  {
+    id: 'mtr',
+    name: 'MTR Foods (Orkla Group)',
+    category: 'Packaged Foods & Savouries',
+    relationship: 'Long-term ingredient supply for traditional savouries, ready mixes & spices',
+    highlight: 'Savouries & Food Mixes',
+  },
+  {
+    id: 'hatsun',
+    name: 'Hatsun Agro Product Ltd (HAP)',
+    category: 'Dairy & Ice Cream',
+    relationship: 'Supply of specialized dairy cultures, coagulants & ice cream ingredients',
+    highlight: 'Dairy & Arun Icecreams',
+  },
+  {
+    id: 'itc',
+    name: 'ITC Limited',
+    category: 'Foods & Confectionery',
+    relationship: 'Industrial raw materials, specialty starches & food flavour systems',
+    highlight: 'FMCG & Confectionery',
+  },
+  {
+    id: 'aditya-milk',
+    name: 'Aditya Milk (Vijaykant Dairy)',
+    category: 'Dairy & Paneer Processing',
+    relationship: 'Supply of high-yield paneer coagulants, cheese cultures & bio-enzymes',
+    highlight: 'Paneer & Cheese Processing',
+  },
+  {
+    id: 'dairy-classic',
+    name: 'Dairy Classic Ice Creams (Dairy Day)',
+    category: 'Ice Cream & Frozen Desserts',
+    relationship: 'Supply of Campco chocolate compounds, cocoa powders & specialized flavours',
+    highlight: 'Ice Creams & Cocoa Dips',
+  },
+];
+
+export const VERIFIED_REVIEWS: CustomerReview[] = [
+  {
+    id: 'rev-01',
+    author: 'Senior Production Head',
+    organization: 'South Indian Savory & Namkeen Manufacturer',
+    roleOrContext: 'Fried Food Processing Line (100L Continuous Fryer)',
+    rating: 5,
+    source: 'Verified Industrial Client Testimonial',
+    date: 'Verified Client Assessment',
+    quote: 'Implementing Xtendra 06 reduced our cooking oil absorption by nearly 12% across our bhujia and chips lines. The reduction in smoke on the floor and the extended shelf life of our packaged snacks has made this a staple in our formulation.',
+    highlightTag: '12% Oil Absorption Cut',
+  },
+  {
+    id: 'rev-02',
+    author: 'Dairy Plant Operations Manager',
+    organization: 'Regional Dairy Cooperative & Processing Unit',
+    roleOrContext: 'Paneer & Cheese Manufacturing Division',
+    rating: 5,
+    source: 'Institutional Dairy Review',
+    date: 'Verified Dairy Feedback',
+    quote: 'Switching to EZENTIAL 4001 coagulant gave us an immediate 19% increase in paneer batch yield without compromising texture. The finished paneer remains soft and spongy after cold-chain transit. Ashita and team provide exceptional technical backing.',
+    highlightTag: '+19% Paneer Yield',
+  },
+  {
+    id: 'rev-03',
+    author: 'Quality Assurance Lead',
+    organization: 'Beverage Bottling & Processing Facility',
+    roleOrContext: 'HACCP & Hygiene Compliance Desk',
+    rating: 5,
+    source: 'Quality Audit Certification',
+    date: 'Verified Plant Review',
+    quote: 'The Hygiena ATP monitoring luminometers supplied by Asian Apex allow our shift supervisors to validate line sanitation in 15 seconds before changeover. Prompt supply of UltraSnap swabs and calibration support whenever needed.',
+    highlightTag: '15-Sec Hygiene Validation',
+  },
+  {
+    id: 'rev-04',
+    author: 'Procurement Director',
+    organization: 'Confectionery & Bakery Brand',
+    roleOrContext: 'Raw Material Procurement & Vendor Governance',
+    rating: 5,
+    source: 'Institutional Client Review',
+    date: 'Unilever Best Vendor Standards',
+    quote: 'Ganesh Inc. and Avighna have been our single-source partner for Gujarat Ambuja starch derivatives and Campco cocoa for years. Their Unilever Best Vendor recognition is well-deserved—deliveries are on time and documentation is immaculate.',
+    highlightTag: 'Uncompromising Reliability',
+  },
+];
