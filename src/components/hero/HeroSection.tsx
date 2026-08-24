@@ -113,11 +113,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Centered Main Hero Content */}
           <div className="max-w-3xl mx-auto text-center space-y-6 animate-fadeIn">
             
-            {/* Group Identity Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50/90 border border-amber-200 text-xs font-mono text-amber-900 shadow-2xs">
-              <span className="w-2 h-2 rounded-full bg-[#E0581E] shadow-[0_0_6px_#E0581E]" />
-              <span className="uppercase tracking-wider font-bold">Speciality Ingredients Group • South India</span>
-            </div>
+
 
             {/* Confident, Strong Headline */}
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.12]">

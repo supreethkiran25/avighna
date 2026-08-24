@@ -83,29 +83,7 @@ export const FirmDetailPage: React.FC<FirmDetailPageProps> = ({
             </span>
           </nav>
 
-          {/* Quick Firm Switcher Tabs */}
-          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
-            <span className="font-mono text-[10px] uppercase text-slate-500 shrink-0 mr-1 hidden sm:inline font-bold">
-              Switch Entity:
-            </span>
-            {OPERATING_FIRMS.map((f) => (
-              <button
-                key={f.id}
-                onClick={() => {
-                  onSwitchFirm(f.id);
-                  setSelectedCategory('all');
-                  setSearchQuery('');
-                }}
-                className={`px-2.5 py-1 rounded-full text-xs font-mono whitespace-nowrap transition-all cursor-pointer ${
-                  f.id === firm.id
-                    ? 'bg-[#E0581E] text-white font-bold shadow-xs'
-                    : 'bg-slate-100 text-slate-700 hover:text-slate-900 border border-slate-200 hover:border-slate-300'
-                }`}
-              >
-                {f.shortName}
-              </button>
-            ))}
-          </div>
+
         </div>
       </div>
 
