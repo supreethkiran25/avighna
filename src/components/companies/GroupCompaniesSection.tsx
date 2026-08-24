@@ -46,14 +46,9 @@ export const GroupCompaniesSection: React.FC<GroupCompaniesSectionProps> = ({ on
                 {/* Company Logo & Title */}
                 <div className="space-y-2">
                   <CompanyLogo companyId={firm.id} size="lg" showText={false} theme="light" />
-                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900 group-hover:text-[#E0581E] transition-colors mt-3">
+                  <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 group-hover:text-[#E0581E] transition-colors mt-3">
                     {firm.name}
                   </h3>
-                  {firm.kannadaName && (
-                    <p className="font-kannada text-xs text-amber-800 font-medium">
-                      {firm.kannadaName}
-                    </p>
-                  )}
                 </div>
 
                 {/* One-Line Description */}

@@ -35,14 +35,9 @@ export const IndustriesSection: React.FC<IndustriesSectionProps> = ({
               <div className="space-y-5">
                 {/* Header */}
                 <div className="space-y-1 pb-4 border-b border-slate-200">
-                  <h3 className="font-serif text-2xl font-bold text-slate-900">
+                  <h3 className="font-display text-2xl font-bold text-slate-900">
                     {ind.title}
                   </h3>
-                  {ind.kannadaTitle && (
-                    <p className="font-kannada text-xs text-amber-800 font-medium">
-                      {ind.kannadaTitle}
-                    </p>
-                  )}
                 </div>
 
                 <p className="text-xs sm:text-sm text-slate-600 font-sans font-normal leading-relaxed">

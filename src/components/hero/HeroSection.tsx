@@ -31,15 +31,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
           {/* Confident, Strong Headline */}
           <div className="space-y-3">
-            <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-slate-900 leading-[1.08]">
+            <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.08]">
               Speciality Ingredients & <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-amber-800 to-[#E0581E]">
                 Industrial Raw Materials.
               </span>
             </h1>
-            <p className="font-kannada text-sm sm:text-base text-amber-800 font-medium">
-              ಅವಿಘ್ನ ಸ್ಪೆಷಾಲಿಟಿ, ಗಣೇಶ್ ಇಂಕ್, ಏಷ್ಯನ್ ಅಪೆಕ್ಸ್ & ಅಥರ್ವ ಅಸೋಸಿಯೇಟ್ಸ್ ಸಮೂಹ
-            </p>
           </div>
 
           {/* Concise, Professional Value Proposition */}

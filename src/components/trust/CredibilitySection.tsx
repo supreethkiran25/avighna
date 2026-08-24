@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, ShieldCheck, Building, Truck, Clock } from 'lucide-react';
+import { Award, ShieldCheck, Building2, Truck, Clock } from 'lucide-react';
 import { INSTITUTIONAL_CLIENTS } from '../../data/trustData';
 
 export const CredibilitySection: React.FC = () => {
@@ -7,38 +7,63 @@ export const CredibilitySection: React.FC = () => {
     {
       icon: Award,
       title: 'Unilever "Best Vendor" Awardee',
-      description: 'M/s. Ganesh Inc. was honored with "The Best Vendor" award by UNILEVER for exemplary supply consistency, quality deliverance, and competitive institutional pricing.',
       tag: 'Industry Accolade',
     },
     {
       icon: ShieldCheck,
       title: 'Authorized MNC Representation',
-      description: 'Direct South India distribution partnerships with Gujarat Ambuja Exports Ltd (GAEL), CHR. HANSEN Denmark, Döehler Germany, and The CAMPCO Ltd.',
       tag: 'Direct Sourcing',
     },
     {
       icon: Clock,
       title: '12+ Years Track Record',
-      description: 'Over a decade of continuous operational excellence in supply chain reliability, zero plant stoppage track record, and technical formulation support.',
       tag: 'Operational Maturity',
     },
     {
       icon: Truck,
       title: 'Southern India Distribution Network',
-      description: 'Warehouses and fast regional dispatch hubs serving Karnataka (Bengaluru, Hubli, Bagalkot, Mangaluru), Tamil Nadu, Andhra Pradesh, and Telangana.',
       tag: 'Regional Reach',
     },
   ];
 
+  // Extended client list for seamless infinite marquee loop
+  const marqueeClients = [
+    ...INSTITUTIONAL_CLIENTS,
+    {
+      id: 'parle',
+      name: 'Parle Products Ltd',
+      category: 'Biscuits & Confectionery',
+      relationship: 'Raw materials & liquid glucose sourcing',
+      highlight: 'FMCG Major',
+    },
+    {
+      id: 'vadilal',
+      name: 'Vadilal Industries Ltd',
+      category: 'Ice Creams & Dairy',
+      relationship: 'Dairy ingredients & cocoa compounds',
+      highlight: 'Dairy Leader',
+    },
+    {
+      id: 'britannia',
+      name: 'Britannia Industries',
+      category: 'Bakery & Dairy',
+      relationship: 'Starch derivatives & flavours',
+      highlight: 'Bakery Leader',
+    },
+  ];
+
+  // Duplicate array for seamless infinite scroll
+  const duplicatedClients = [...marqueeClients, ...marqueeClients];
+
   return (
-    <section id="about" className="py-24 sm:py-32 bg-[#F8FAFC] border-t border-slate-200/80 relative">
+    <section id="about" className="py-24 sm:py-32 bg-[#F8FAFC] border-t border-slate-200/80 relative overflow-hidden">
       <div className="container-editorial">
         {/* Section Header */}
-        <div className="max-w-3xl space-y-3 mb-16">
+        <div className="max-w-3xl space-y-3 mb-14">
           <span className="font-mono text-xs uppercase tracking-widest text-[#E0581E] block font-bold">
             // Institutional Trust & Accreditations
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
             Why Work With Our Group
           </h2>
           <p className="text-sm sm:text-base text-slate-600 font-sans font-normal leading-relaxed">
@@ -46,40 +71,34 @@ export const CredibilitySection: React.FC = () => {
           </p>
         </div>
 
-        {/* 4 Clean Differentiators Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        {/* 4 Clean Minimal Differentiator Cards (No paragraph clutter) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {differentiators.map((diff, idx) => {
             const Icon = diff.icon;
             return (
               <div
                 key={idx}
-                className="p-7 rounded-3xl bg-white border border-slate-200 hover:border-slate-300 transition-all duration-300 space-y-4 shadow-sm hover:shadow-md flex flex-col justify-between"
+                className="p-8 rounded-3xl bg-white border border-slate-200 hover:border-[#E0581E]/40 transition-all duration-300 shadow-sm hover:shadow-md flex flex-col justify-between space-y-6 hover:-translate-y-1"
               >
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-2xl bg-orange-50 border border-orange-200 flex items-center justify-center text-[#E0581E]">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <span className="font-mono text-[10px] uppercase text-amber-800 px-2.5 py-0.5 rounded-full bg-amber-50 border border-amber-200/60 font-semibold">
-                      {diff.tag}
-                    </span>
+                <div className="flex items-center justify-between">
+                  <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-200 flex items-center justify-center text-[#E0581E] shadow-2xs">
+                    <Icon className="w-6 h-6" />
                   </div>
-
-                  <h3 className="font-serif text-xl font-bold text-slate-900 leading-snug">
-                    {diff.title}
-                  </h3>
-
-                  <p className="text-xs text-slate-600 font-sans font-normal leading-relaxed">
-                    {diff.description}
-                  </p>
+                  <span className="font-mono text-[10px] uppercase text-amber-800 px-3 py-1 rounded-full bg-amber-50 border border-amber-200/70 font-bold">
+                    {diff.tag}
+                  </span>
                 </div>
+
+                <h3 className="font-display text-lg sm:text-xl font-bold text-slate-900 leading-snug">
+                  {diff.title}
+                </h3>
               </div>
             );
           })}
         </div>
 
         {/* Unilever Award Spotlight Box */}
-        <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-amber-50/90 via-orange-50/70 to-amber-50/90 border-2 border-amber-300 relative overflow-hidden shadow-md mb-16">
+        <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-amber-50/90 via-orange-50/70 to-amber-50/90 border-2 border-amber-300 relative overflow-hidden shadow-md mb-20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-3">
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-amber-300 font-mono text-xs text-amber-800 uppercase tracking-wider font-bold shadow-2xs">
@@ -87,7 +106,7 @@ export const CredibilitySection: React.FC = () => {
                 <span>Premier Vendor Accolade</span>
               </div>
 
-              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900">
+              <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900">
                 Recipient of "The Best Vendor" Award Presented by UNILEVER
               </h3>
 
@@ -100,7 +119,7 @@ export const CredibilitySection: React.FC = () => {
               <span className="font-mono text-[10.5px] uppercase tracking-widest text-amber-800 block font-bold">
                 // Enterprise Client Trust
               </span>
-              <div className="font-serif text-2xl font-bold text-slate-900">
+              <div className="font-display text-2xl font-extrabold text-slate-900">
                 Hindustan Unilever
               </div>
               <p className="text-xs text-slate-600 font-sans">
@@ -109,40 +128,52 @@ export const CredibilitySection: React.FC = () => {
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Institutional Client Portfolio */}
-        <div className="space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-3 border-b border-slate-200">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#E0581E] block font-bold">
-              // Institutional Deliveries
-            </span>
-            <span className="font-mono text-xs text-slate-500">
-              Regular supply partners across Karnataka & South India
-            </span>
+      {/* Moving Client Portfolio Marquee Section (Image 2 Reference Style) */}
+      <div className="pt-4 pb-2 space-y-8">
+        {/* Centered Portfolio Header */}
+        <div className="text-center space-y-2 max-w-2xl mx-auto px-4">
+          <div className="inline-block relative">
+            <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              Our Client Portfolio
+            </h3>
+            <div className="w-16 h-1 bg-[#E0581E] rounded-full mx-auto mt-2" />
           </div>
+          <p className="text-xs sm:text-sm text-slate-600 font-sans font-normal">
+            Trusted by India's leading enterprises across diverse food, dairy, beverage & FMCG sectors.
+          </p>
+        </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {INSTITUTIONAL_CLIENTS.map((client) => (
+        {/* Smooth Infinite Marquee Track */}
+        <div className="relative w-full overflow-hidden py-4">
+          {/* Gradient Edge Fades */}
+          <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-r from-[#F8FAFC] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-l from-[#F8FAFC] to-transparent z-10 pointer-events-none" />
+
+          <div className="animate-marquee gap-6 px-4">
+            {duplicatedClients.map((client, idx) => (
               <div
-                key={client.id}
-                className="p-6 rounded-2xl bg-white border border-slate-200 space-y-2 shadow-xs hover:shadow-md transition-shadow"
+                key={`${client.id}-${idx}`}
+                className="w-72 sm:w-80 p-6 rounded-2xl bg-white border border-slate-200 hover:border-[#E0581E]/40 space-y-2.5 shadow-sm hover:shadow-md transition-all shrink-0 select-none"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[10px] uppercase text-amber-800 px-2 py-0.5 rounded-full bg-amber-50 border border-amber-200 font-semibold">
+                  <span className="font-mono text-[9.5px] uppercase text-amber-800 px-2.5 py-0.5 rounded-full bg-amber-50 border border-amber-200/80 font-bold">
                     {client.highlight}
                   </span>
-                  <Building className="w-3.5 h-3.5 text-slate-400" />
+                  <Building2 className="w-4 h-4 text-slate-400" />
                 </div>
 
-                <h4 className="font-serif text-lg font-bold text-slate-900">
-                  {client.name}
-                </h4>
+                <div>
+                  <h4 className="font-display text-base font-bold text-slate-900 line-clamp-1">
+                    {client.name}
+                  </h4>
+                  <p className="text-xs font-mono text-[#E0581E] font-semibold mt-0.5">
+                    {client.category}
+                  </p>
+                </div>
 
-                <p className="text-xs font-mono text-[#E0581E] font-semibold">
-                  {client.category}
-                </p>
-
-                <p className="text-xs text-slate-600 font-sans font-normal pt-1">
+                <p className="text-xs text-slate-600 font-sans line-clamp-2 pt-1 border-t border-slate-100">
                   {client.relationship}
                 </p>
               </div>

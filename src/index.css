@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&family=Noto+Sans+Kannada:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -19,7 +19,6 @@
   --font-display: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
   --font-sans: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --font-kannada: 'Noto Sans Kannada', sans-serif;
 }
 
 :root {
@@ -28,7 +27,6 @@
   --font-editorial: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
   --font-sans: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --font-kannada: 'Noto Sans Kannada', sans-serif;
 
   --color-obsidian: #0F172A;
   --color-obsidian-card: #FFFFFF;
@@ -122,11 +120,6 @@ body {
   letter-spacing: -0.015em;
 }
 
-.font-kannada {
-  font-family: 'Noto Sans Kannada', sans-serif;
-  letter-spacing: 0.01em;
-}
-
 /* Publication Grid Container */
 .container-editorial {
   width: 100%;
@@ -172,6 +165,26 @@ body {
 
 .animate-fadeIn {
   animation: fadeInUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Continuous Infinite Marquee Animation */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
 
 /* No Scrollbar Utility */

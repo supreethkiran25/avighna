@@ -114,14 +114,9 @@ export const FirmDetailPage: React.FC<FirmDetailPageProps> = ({
               </div>
 
               <div className="space-y-1">
-                <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900">
+                <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
                   {firm.name}
                 </h1>
-                {firm.kannadaName && (
-                  <p className="font-kannada text-sm sm:text-base text-amber-800 font-medium">
-                    {firm.kannadaName}
-                  </p>
-                )}
               </div>
 
               <p className="text-base sm:text-lg text-slate-600 font-sans font-normal leading-relaxed">

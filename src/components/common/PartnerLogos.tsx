@@ -30,18 +30,25 @@ export const PartnerLogosStrip: React.FC = () => {
     { name: 'Mane Kancor', origin: 'Natural Extracts' },
   ];
 
+  // Duplicate for infinite marquee
+  const duplicated = [...principals, ...principals, ...principals];
+
   return (
-    <div className="w-full overflow-x-auto no-scrollbar py-3 sm:py-4">
-      <div className="flex items-center gap-3 sm:gap-4 min-w-max">
-        {principals.map((principal, idx) => (
+    <div className="relative w-full overflow-hidden py-3 sm:py-4">
+      {/* Edge gradient masks */}
+      <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+
+      <div className="animate-marquee gap-3 sm:gap-4 px-2">
+        {duplicated.map((principal, idx) => (
           <div
             key={idx}
-            className="flex items-center gap-2.5 px-4 py-2 rounded-full bg-white border border-slate-200 hover:border-[#E0581E] hover:bg-orange-50/40 transition-all duration-300 group shadow-xs hover:-translate-y-0.5"
+            className="flex items-center gap-2.5 px-4 py-2 rounded-full bg-white border border-slate-200 hover:border-[#E0581E] hover:bg-orange-50/40 transition-all duration-300 group shadow-2xs shrink-0 select-none cursor-default"
           >
-            <span className="font-mono text-[10px] text-amber-700 uppercase tracking-wider font-bold px-2 py-0.5 rounded-full bg-amber-50 border border-amber-200/60">
+            <span className="font-mono text-[10px] text-amber-800 uppercase tracking-wider font-bold px-2 py-0.5 rounded-full bg-amber-50 border border-amber-200/60">
               {principal.origin}
             </span>
-            <span className="font-sans text-xs text-slate-800 font-semibold group-hover:text-slate-900">
+            <span className="font-sans text-xs text-slate-800 font-semibold group-hover:text-slate-900 whitespace-nowrap">
               {principal.name}
             </span>
           </div>
