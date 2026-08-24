@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;600;700;800&family=Noto+Serif+Kannada:wght@600;700;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Syne:wght@700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&family=Noto+Sans+Kannada:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -14,21 +14,21 @@
   --color-charcoal: #E2E8F0;
   --color-titanium: #94A3B8;
 
-  --font-logo: 'Syne', 'Plus Jakarta Sans', sans-serif;
-  --font-serif: 'Playfair Display', 'DM Serif Display', Georgia, serif;
-  --font-display: 'DM Serif Display', 'Playfair Display', Georgia, serif;
-  --font-sans: 'Plus Jakarta Sans', 'Manrope', system-ui, -apple-system, sans-serif;
+  --font-logo: 'Plus Jakarta Sans', sans-serif;
+  --font-serif: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --font-kannada: 'Noto Serif Kannada', sans-serif;
+  --font-kannada: 'Noto Sans Kannada', sans-serif;
 }
 
 :root {
-  --font-serif: 'Playfair Display', 'DM Serif Display', Georgia, serif;
-  --font-display: 'DM Serif Display', 'Playfair Display', Georgia, serif;
-  --font-editorial: 'Cormorant Garamond', 'Playfair Display', serif;
-  --font-sans: 'Plus Jakarta Sans', 'Manrope', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-editorial: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --font-kannada: 'Noto Serif Kannada', sans-serif;
+  --font-kannada: 'Noto Sans Kannada', sans-serif;
 
   --color-obsidian: #0F172A;
   --color-obsidian-card: #FFFFFF;
@@ -51,11 +51,12 @@ html {
   background-color: #FFFFFF;
   color: #0F172A;
   font-family: var(--font-sans);
+  letter-spacing: -0.011em;
 }
 
 body {
   overflow-x: hidden;
-  line-height: 1.65;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #FFFFFF;
@@ -80,7 +81,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-amber-brand);
+  background: #E0581E;
 }
 
 /* Text Selection */
@@ -89,34 +90,41 @@ body {
   color: #7C2D12;
 }
 
-/* Typography Classes */
+/* Typography Classes with Professional Corporate Kerning */
 .font-logo {
-  font-family: 'Syne', 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 .font-serif {
-  font-family: var(--font-serif);
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  letter-spacing: -0.025em;
 }
 
 .font-display {
-  font-family: var(--font-display);
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  letter-spacing: -0.03em;
 }
 
 .font-editorial {
-  font-family: var(--font-editorial);
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  letter-spacing: -0.02em;
 }
 
 .font-sans {
-  font-family: var(--font-sans);
+  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.011em;
 }
 
 .font-mono {
-  font-family: var(--font-mono);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: -0.015em;
 }
 
 .font-kannada {
-  font-family: var(--font-kannada);
+  font-family: 'Noto Sans Kannada', sans-serif;
+  letter-spacing: 0.01em;
 }
 
 /* Publication Grid Container */
@@ -154,7 +162,7 @@ body {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -163,7 +171,7 @@ body {
 }
 
 .animate-fadeIn {
-  animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeInUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* No Scrollbar Utility */
