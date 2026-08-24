@@ -5,7 +5,12 @@ export const COMPANY_PROFILE = {
   tradeName: 'Avighna Speciality Ingredients',
   shortName: 'Avighna',
   kannadaName: 'ಅವಿಘ್ನ ಸ್ಪೆಷಾಲಿಟಿ ಇಂಗ್ರೀಡಿಯೆಂಟ್ಸ್ ಪ್ರೈವೇಟ್ ಲಿಮಿಟೆಡ್',
-  associateEntities: ['Ganesh Inc.', 'Asian Apex & Co.'],
+  associateEntities: [
+    'Avighna Speciality Ingredients Pvt Ltd',
+    'M/s. Ganesh Inc.',
+    'Asian Apex & Co.',
+    'Atharva Associates',
+  ],
   tagline: 'Create Better Taste. Build Stronger Products.',
   subtagline: 'Premier Partner in Food, Dairy, Beverage & Pharma Raw Materials Across Southern India.',
   establishedYears: '12+ Years of Operational Excellence',

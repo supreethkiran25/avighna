@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <p className="font-mono text-[11px] text-[#6B7A88]">
-              Operating Entities: Avighna Speciality Ingredients • M/s. Ganesh Inc. • Asian Apex & Co.
+              Operating Entities: Avighna Speciality Ingredients • M/s. Ganesh Inc. • Asian Apex & Co. • Atharva Associates
             </p>
           </div>
 
@@ -49,7 +49,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <a href="#products" className="text-[#F9F8F5]/70 hover:text-[#E0581E] transition-colors">
-                  Specialty Formulations
+                  Multi-Firm Formulations
                 </a>
               </li>
               <li>
@@ -58,13 +58,8 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href="#calculator" className="text-[#F9F8F5]/70 hover:text-[#E0581E] transition-colors">
-                  Yield & Savings Simulator
-                </a>
-              </li>
-              <li>
                 <a href="#ecosystem" className="text-[#F9F8F5]/70 hover:text-[#E0581E] transition-colors">
-                  Group Ecosystem & Principals
+                  4-Firm Group Ecosystem
                 </a>
               </li>
               <li>

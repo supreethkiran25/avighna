@@ -15,6 +15,8 @@ export type IndustryCategory =
   | 'pharma-nutra'
   | 'industrial-hygiene';
 
+export type CompanyId = 'avighna' | 'ganesh-inc' | 'asian-apex' | 'atharva-associates';
+
 export interface ProductSpecification {
   label: string;
   value: string;
@@ -22,6 +24,7 @@ export interface ProductSpecification {
 
 export interface ProductItem {
   id: string;
+  companyId: CompanyId;
   name: string;
   brandOrPrincipal?: string;
   category: IndustryCategory;

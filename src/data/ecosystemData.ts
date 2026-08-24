@@ -67,6 +67,28 @@ export const AVIGHNA_ECOSYSTEM: EcosystemDivision[] = [
     contactPerson: 'Technical Sales Desk',
     phone: '+91 96867 09673',
   },
+  {
+    id: 'atharva-associates',
+    number: '04',
+    name: 'ATHARVA ASSOCIATES',
+    shortName: 'Atharva Associates',
+    kannadaName: 'ಅಥರ್ವ ಅಸೋಸಿಯೇಟ್ಸ್',
+    role: 'Specialty Trading, Raw Material Aggregation & Regional Supply Logistics',
+    description: 'The strategic sourcing and bulk ingredient aggregation arm. Facilitates direct plant supply contracts, commercial spice extractions, bulk sweeteners, and custom ingredient consignments for food processors and commercial bakeries across Karnataka and Southern India.',
+    establishedInfo: 'Affiliated Group Trading & Distribution Arm • Southern India Logistics Desk',
+    imageUrl: '/assets/ai_ingredient_essence.jpg',
+    keyOfferings: [
+      'Industrial Raw Material Trading & Bulk Consignments',
+      'Food & Beverage Raw Material Aggregation',
+      'Direct Commercial Plant Supply & Distribution',
+      'Custom Ingredient Consignments & Spot Supply Contracts',
+      'Cross-Regional Logistics Support across South India',
+    ],
+    principalsOrPartners: ['Regional Processors', 'Domestic Manufacturing Partners', 'Direct Commercial Refineries'],
+    badge: 'Distribution & Trading Arm',
+    contactPerson: 'Commercial Desk',
+    phone: '+91 94833 89387',
+  },
 ];
 
 export const GLOBAL_PRINCIPALS: GlobalPrincipal[] = [

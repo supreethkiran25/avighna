@@ -15,8 +15,8 @@ export const EcosystemSection: React.FC = () => {
         {/* Section Header */}
         <SectionHeader
           label="Corporate Architecture // Group Ecosystem"
-          title="One Standard. Three Specialized Entities."
-          kannadaSubtitle="ಅವಿಘ್ನ ಸ್ಪೆಷಾಲಿಟಿ, ಗಣೇಶ್ ಇಂಕ್ ಮತ್ತು ಏಷ್ಯನ್ ಅಪೆಕ್ಸ್ ಸಹಯೋಗ"
+          title="One Standard. Four Specialized Entities."
+          kannadaSubtitle="ಅವಿಘ್ನ ಸ್ಪೆಷಾಲಿಟಿ, ಗಣೇಶ್ ಇಂಕ್, ಏಷ್ಯನ್ ಅಪೆಕ್ಸ್ ಮತ್ತು ಅಥರ್ವ ಅಸೋಸಿಯೇಟ್ಸ್"
           description="A unified distribution and technical formulation network catering to food processors, industrial dairies, beverage bottlers, and pharmaceutical plants across Southern India."
         />
 

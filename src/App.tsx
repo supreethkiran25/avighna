@@ -4,7 +4,6 @@ import { HeroSection } from './components/hero/HeroSection';
 import { PartnerLogosStrip } from './components/common/PartnerLogos';
 import { ProductCatalog } from './components/products/ProductCatalog';
 import { FlyerGallery } from './components/gallery/FlyerGallery';
-import { YieldCalculator } from './components/calculators/YieldCalculator';
 import { EcosystemSection } from './components/ecosystem/EcosystemSection';
 import { TrustSection } from './components/trust/TrustSection';
 import { DownloadCenter } from './components/downloads/DownloadCenter';
@@ -49,10 +48,7 @@ export const App: React.FC = () => {
         {/* Official Product Flyers & Technical Dossier Lightbox Gallery */}
         <FlyerGallery />
 
-        {/* Technical Process Yield & Frying Oil Savings Calculator */}
-        <YieldCalculator onRequestSample={handleRequestSample} />
-
-        {/* Group Ecosystem (Avighna Speciality, Ganesh Inc., Asian Apex) & Principals */}
+        {/* Group Ecosystem (Avighna Speciality, Ganesh Inc., Asian Apex, Atharva Associates) & Principals */}
         <EcosystemSection />
 
         {/* Institutional Trust, Unilever Best Vendor Award & Client Roster */}

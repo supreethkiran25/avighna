@@ -16,7 +16,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSampleModal }) => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 25);
 
-      const sections = ['overview', 'products', 'flyers', 'calculator', 'ecosystem', 'trust', 'downloads', 'contact'];
+      const sections = ['overview', 'products', 'flyers', 'ecosystem', 'trust', 'downloads', 'contact'];
       const scrollPos = window.scrollY + 160;
 
       for (const sId of sections) {
@@ -37,12 +37,12 @@ export const Header: React.FC<HeaderProps> = ({ onOpenSampleModal }) => {
   }, []);
 
   const navLinks = [
-    { label: 'Solutions', href: '#products' },
+    { label: 'Formulations & Products', href: '#products' },
     { label: 'Product Flyers', href: '#flyers' },
-    { label: 'Yield Calculator', href: '#calculator' },
     { label: 'Group Ecosystem', href: '#ecosystem' },
     { label: 'Accreditation & Trust', href: '#trust' },
     { label: 'Technical Downloads', href: '#downloads' },
+    { label: 'Contact', href: '#contact' },
   ];
 
   const handleLinkClick = (href: string) => {
