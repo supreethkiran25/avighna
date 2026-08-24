@@ -88,7 +88,7 @@ export const App: React.FC = () => {
             />
 
             {/* Global Authorized Principals Representation Strip */}
-            <div className="border-y border-white/[0.06] bg-[#0A0C0E]">
+            <div className="border-y border-slate-200/80 bg-white">
               <div className="container-editorial">
                 <PartnerLogosStrip />
               </div>
