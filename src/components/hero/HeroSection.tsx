@@ -154,10 +154,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Centered Credibility Badges */}
             <div className="pt-8 border-t border-slate-200/80 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs font-mono text-slate-600">
               <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-50 border border-slate-200 shadow-2xs">
-                <Award className="w-4 h-4 text-amber-600 shrink-0" />
-                <span className="font-semibold text-slate-800">Unilever Best Vendor</span>
-              </div>
-              <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-50 border border-slate-200 shadow-2xs">
                 <ShieldCheck className="w-4 h-4 text-[#E0581E] shrink-0" />
                 <span className="font-semibold text-slate-800">12+ Years Leadership</span>
               </div>
