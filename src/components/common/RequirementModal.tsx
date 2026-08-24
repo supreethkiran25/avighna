@@ -53,25 +53,25 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto animate-fadeIn"
+      className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 overflow-y-auto animate-fadeIn"
       role="dialog"
       aria-modal="true"
     >
-      <div className="relative w-full max-w-2xl bg-[#0E1116] border border-white/15 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6 my-8">
+      <div className="relative w-full max-w-2xl bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6 my-8 text-slate-900">
         {/* Modal Top Bar */}
-        <div className="flex items-center justify-between pb-4 border-b border-white/[0.08]">
+        <div className="flex items-center justify-between pb-4 border-b border-slate-100">
           <div>
-            <span className="font-mono text-xs text-[#E0581E] uppercase tracking-widest block font-semibold">
+            <span className="font-mono text-xs text-[#E0581E] uppercase tracking-widest block font-bold">
               // B2B Specification Request
             </span>
-            <h3 className="font-serif text-2xl font-bold text-[#F9F8F5]">
+            <h3 className="font-serif text-2xl font-bold text-slate-900">
               Send Product Requirement
             </h3>
           </div>
 
           <button
             onClick={onClose}
-            className="p-2 rounded-full bg-white/[0.04] hover:bg-white/[0.08] text-[#9DA3AF] hover:text-[#F9F8F5] border border-white/10 transition-colors cursor-pointer"
+            className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 border border-slate-200 transition-colors cursor-pointer"
             aria-label="Close Modal"
           >
             <X className="w-5 h-5" />
@@ -80,19 +80,19 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
 
         {isSubmitted ? (
           <div className="py-8 text-center space-y-4 animate-fadeIn">
-            <CheckCircle2 className="w-12 h-12 text-[#25D366] mx-auto" />
-            <h4 className="font-serif text-2xl font-bold text-[#F9F8F5]">
+            <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto" />
+            <h4 className="font-serif text-2xl font-bold text-slate-900">
               Requirement Dispatched to {activeFirm.shortName}
             </h4>
-            <p className="text-xs sm:text-sm text-[#9DA3AF] max-w-md mx-auto font-sans">
-              Thank you, <strong className="text-[#F9F8F5]">{fullName}</strong>. Our team will review your requirement for <strong className="text-[#E0581E]">{productRequired || activeFirm.shortName}</strong> and follow up with technical documentation and dispatch schedules within 24 hours.
+            <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto font-sans">
+              Thank you, <strong className="text-slate-900">{fullName}</strong>. Our team will review your requirement for <strong className="text-[#E0581E]">{productRequired || activeFirm.shortName}</strong> and follow up with technical documentation and dispatch schedules within 24 hours.
             </p>
-            <div className="pt-2 font-mono text-xs text-[#E5B25D]">
+            <div className="pt-2 font-mono text-xs text-amber-800 font-semibold">
               Direct desk: {activeFirm.primaryPhone}
             </div>
             <button
               onClick={onClose}
-              className="mt-4 px-6 py-2.5 rounded-full bg-[#E0581E] text-[#08090A] text-xs font-bold uppercase tracking-wider cursor-pointer"
+              className="mt-4 px-6 py-2.5 rounded-full bg-[#E0581E] text-white text-xs font-bold uppercase tracking-wider cursor-pointer"
             >
               Close Window
             </button>
@@ -101,7 +101,7 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Firm Selector */}
             <div>
-              <label className="block text-xs font-mono text-[#E5B25D] mb-1.5 font-semibold">
+              <label className="block text-xs font-mono text-amber-800 mb-1.5 font-bold">
                 Target Operating Firm:
               </label>
               <div className="grid grid-cols-2 gap-2">
@@ -112,8 +112,8 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
                     onClick={() => setSelectedFirmId(firm.id)}
                     className={`p-2.5 rounded-xl border text-left text-xs font-mono transition-all cursor-pointer ${
                       selectedFirmId === firm.id
-                        ? 'bg-black/60 border-[#E0581E] text-[#E0581E] font-bold'
-                        : 'bg-white/[0.02] border-white/5 text-[#9DA3AF] hover:text-[#F9F8F5]'
+                        ? 'bg-orange-50 border-[#E0581E] text-[#E0581E] font-bold shadow-xs ring-1 ring-[#E0581E]/30'
+                        : 'bg-slate-50 border-slate-200 text-slate-700 hover:text-slate-900 hover:bg-slate-100'
                     }`}
                   >
                     {firm.shortName}
@@ -124,7 +124,7 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
 
             {/* Target Product */}
             <div>
-              <label className="block text-xs font-mono text-[#9DA3AF] mb-1">
+              <label className="block text-xs font-mono text-slate-600 mb-1 font-medium">
                 Product / Ingredient Required *
               </label>
               <input
@@ -133,14 +133,14 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
                 placeholder="e.g. Xtendra 06, Sorbitol 70%, Cocoa Powder, ATP Swabs"
                 value={productRequired}
                 onChange={(e) => setProductRequired(e.target.value)}
-                className="w-full px-3.5 py-2 rounded-xl bg-black/40 border border-white/10 text-xs font-sans text-[#F9F8F5] placeholder-[#6B7A88] focus:outline-none focus:border-[#E0581E]"
+                className="w-full px-3.5 py-2 rounded-xl bg-white border border-slate-300 text-xs font-sans text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#E0581E]"
               />
             </div>
 
             {/* Contact Details Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-mono text-[#9DA3AF] mb-1">
+                <label className="block text-xs font-mono text-slate-600 mb-1 font-medium">
                   Full Name *
                 </label>
                 <input
@@ -149,12 +149,12 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
                   placeholder="e.g. Ramesh Kumar"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
-                  className="w-full px-3.5 py-2 rounded-xl bg-black/40 border border-white/10 text-xs font-sans text-[#F9F8F5] placeholder-[#6B7A88] focus:outline-none focus:border-[#E0581E]"
+                  className="w-full px-3.5 py-2 rounded-xl bg-white border border-slate-300 text-xs font-sans text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#E0581E]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-[#9DA3AF] mb-1">
+                <label className="block text-xs font-mono text-slate-600 mb-1 font-medium">
                   Company / Plant Name
                 </label>
                 <input
@@ -162,14 +162,14 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
                   placeholder="e.g. Premier Foods Ltd"
                   value={companyName}
                   onChange={(e) => setCompanyName(e.target.value)}
-                  className="w-full px-3.5 py-2 rounded-xl bg-black/40 border border-white/10 text-xs font-sans text-[#F9F8F5] placeholder-[#6B7A88] focus:outline-none focus:border-[#E0581E]"
+                  className="w-full px-3.5 py-2 rounded-xl bg-white border border-slate-300 text-xs font-sans text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#E0581E]"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-mono text-[#9DA3AF] mb-1">
+                <label className="block text-xs font-mono text-slate-600 mb-1 font-medium">
                   Work Email *
                 </label>
                 <input
@@ -178,12 +178,12 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
                   placeholder="e.g. ramesh@premierfoods.in"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-3.5 py-2 rounded-xl bg-black/40 border border-white/10 text-xs font-sans text-[#F9F8F5] placeholder-[#6B7A88] focus:outline-none focus:border-[#E0581E]"
+                  className="w-full px-3.5 py-2 rounded-xl bg-white border border-slate-300 text-xs font-sans text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#E0581E]"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-[#9DA3AF] mb-1">
+                <label className="block text-xs font-mono text-slate-600 mb-1 font-medium">
                   Mobile / Phone *
                 </label>
                 <input
@@ -192,7 +192,7 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
                   placeholder="e.g. +91 98450 XXXXX"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="w-full px-3.5 py-2 rounded-xl bg-black/40 border border-white/10 text-xs font-sans text-[#F9F8F5] placeholder-[#6B7A88] focus:outline-none focus:border-[#E0581E]"
+                  className="w-full px-3.5 py-2 rounded-xl bg-white border border-slate-300 text-xs font-sans text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#E0581E]"
                 />
               </div>
             </div>
@@ -200,13 +200,13 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
             {/* Quantity & Notes */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-mono text-[#9DA3AF] mb-1">
+                <label className="block text-xs font-mono text-slate-600 mb-1 font-medium">
                   Volume / Trial Stage
                 </label>
                 <select
                   value={volume}
                   onChange={(e) => setVolume(e.target.value)}
-                  className="w-full px-3.5 py-2 rounded-xl bg-black/40 border border-white/10 text-xs font-mono text-[#F9F8F5] focus:outline-none focus:border-[#E0581E]"
+                  className="w-full px-3.5 py-2 rounded-xl bg-white border border-slate-300 text-xs font-mono text-slate-900 focus:outline-none focus:border-[#E0581E]"
                 >
                   <option value="Trial Sample (Pilot / Laboratory)">Trial Sample (Pilot / Laboratory)</option>
                   <option value="Initial Batch (100 kg – 500 kg)">Initial Batch (100 kg – 500 kg)</option>
@@ -216,7 +216,7 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-[#9DA3AF] mb-1">
+                <label className="block text-xs font-mono text-slate-600 mb-1 font-medium">
                   Application / Notes
                 </label>
                 <input
@@ -224,17 +224,17 @@ export const RequirementModal: React.FC<RequirementModalProps> = ({
                   placeholder="e.g. 75L fryer, paneer batch"
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
-                  className="w-full px-3.5 py-2 rounded-xl bg-black/40 border border-white/10 text-xs font-sans text-[#F9F8F5] placeholder-[#6B7A88] focus:outline-none focus:border-[#E0581E]"
+                  className="w-full px-3.5 py-2 rounded-xl bg-white border border-slate-300 text-xs font-sans text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#E0581E]"
                 />
               </div>
             </div>
 
             <button
               type="submit"
-              className="w-full py-3.5 rounded-full bg-[#E0581E] hover:bg-[#F57E25] text-[#08090A] font-sans text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-[#E0581E]/30"
+              className="w-full py-3.5 rounded-full bg-[#E0581E] hover:bg-[#D9480F] text-white font-sans text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-[#E0581E]/25"
             >
               <span>Submit Requirement</span>
-              <Send className="w-3.5 h-3.5 text-[#08090A]" />
+              <Send className="w-3.5 h-3.5 text-white" />
             </button>
           </form>
         )}

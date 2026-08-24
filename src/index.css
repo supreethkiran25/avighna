@@ -1,18 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;600;700;800&family=Noto+Serif+Kannada:wght@600;700;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@600;700;800;900&family=Syne:wght@700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;800;900&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;600;700;800&family=Noto+Serif+Kannada:wght@600;700;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Syne:wght@700;800;900&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-obsidian: #070809;
-  --color-obsidian-card: #0E1116;
-  --color-obsidian-surface: #141820;
-  --color-ivory: #F9F8F5;
-  --color-ivory-muted: #9DA3AF;
+  --color-obsidian: #0F172A;
+  --color-obsidian-card: #FFFFFF;
+  --color-obsidian-surface: #F8FAFC;
+  --color-ivory: #0F172A;
+  --color-ivory-muted: #64748B;
   --color-amber-brand: #E0581E;
   --color-amber-light: #F57E25;
-  --color-gold-brand: #C88E3E;
-  --color-gold-light: #E5B25D;
-  --color-charcoal: #1A1F26;
-  --color-titanium: #6B7A88;
+  --color-gold-brand: #B45309;
+  --color-gold-light: #D97706;
+  --color-charcoal: #E2E8F0;
+  --color-titanium: #94A3B8;
 
   --font-logo: 'Syne', 'Plus Jakarta Sans', sans-serif;
   --font-serif: 'Playfair Display', 'DM Serif Display', Georgia, serif;
@@ -30,15 +30,15 @@
   --font-mono: 'JetBrains Mono', monospace;
   --font-kannada: 'Noto Serif Kannada', sans-serif;
 
-  --color-obsidian: #070809;
-  --color-obsidian-card: #0E1116;
-  --color-obsidian-surface: #141820;
-  --color-ivory: #F9F8F5;
-  --color-ivory-muted: #9DA3AF;
+  --color-obsidian: #0F172A;
+  --color-obsidian-card: #FFFFFF;
+  --color-obsidian-surface: #F8FAFC;
+  --color-ivory: #0F172A;
+  --color-ivory-muted: #64748B;
   --color-amber-brand: #E0581E;
   --color-amber-light: #F57E25;
-  --color-gold-brand: #C88E3E;
-  --color-gold-light: #E5B25D;
+  --color-gold-brand: #B45309;
+  --color-gold-light: #D97706;
 }
 
 * {
@@ -47,9 +47,9 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
-  background-color: #070809;
-  color: #F9F8F5;
+  color-scheme: light;
+  background-color: #FFFFFF;
+  color: #0F172A;
   font-family: var(--font-sans);
 }
 
@@ -58,24 +58,24 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #070809;
-  color: #F9F8F5;
+  background-color: #FFFFFF;
+  color: #0F172A;
   margin: 0;
   padding: 0;
 }
 
-/* Custom Smooth Glass Scrollbar */
+/* Custom Clean Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #070809;
+  background: #F1F5F9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1E232B;
+  background: #CBD5E1;
   border-radius: 9999px;
 }
 
@@ -85,8 +85,8 @@ body {
 
 /* Text Selection */
 ::selection {
-  background-color: var(--color-amber-brand);
-  color: #070809;
+  background-color: #FED7AA;
+  color: #7C2D12;
 }
 
 /* Typography Classes */
@@ -117,49 +117,6 @@ body {
 
 .font-kannada {
   font-family: var(--font-kannada);
-}
-
-/* Fluid Luxury Glass Panels */
-.glass-panel {
-  background: rgba(14, 17, 22, 0.65);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
-}
-
-.glass-panel-hover {
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.glass-panel-hover:hover {
-  border-color: rgba(224, 88, 30, 0.4);
-  background: rgba(20, 24, 32, 0.85);
-  box-shadow: 0 25px 50px -12px rgba(224, 88, 30, 0.15);
-  transform: translateY(-2px);
-}
-
-/* Pill Badges & Chips */
-.glass-pill {
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 9999px;
-  transition: all 0.25s ease;
-}
-
-.glass-pill:hover {
-  border-color: rgba(224, 88, 30, 0.5);
-  background: rgba(255, 255, 255, 0.08);
-}
-
-/* Fluid Asymmetrical Containers */
-.rounded-asymmetric-lg {
-  border-radius: 2rem 0.75rem 2rem 0.75rem;
-}
-
-.rounded-asymmetric-xl {
-  border-radius: 2.5rem 1rem 2.5rem 1rem;
 }
 
 /* Publication Grid Container */
@@ -197,7 +154,7 @@ body {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(14px);
   }
   to {
     opacity: 1;
@@ -206,21 +163,7 @@ body {
 }
 
 .animate-fadeIn {
-  animation: fadeInUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* Floating Ambient Glow Animation */
-@keyframes floatSlow {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-8px) rotate(1deg);
-  }
-}
-
-.animate-floatSlow {
-  animation: floatSlow 8s ease-in-out infinite;
+  animation: fadeInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* No Scrollbar Utility */

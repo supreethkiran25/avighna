@@ -58,8 +58,8 @@ export const Header: React.FC<HeaderProps> = ({
       <div
         className={`max-w-7xl mx-auto rounded-2xl sm:rounded-full px-5 sm:px-8 py-3 flex items-center justify-between gap-4 sm:gap-8 transition-all duration-300 ${
           isScrolled
-            ? 'bg-[#08090A]/95 backdrop-blur-2xl border border-white/10 shadow-2xl'
-            : 'bg-[#0E1116]/80 backdrop-blur-xl border border-white/10'
+            ? 'bg-white/95 backdrop-blur-2xl border border-slate-200/90 shadow-lg'
+            : 'bg-white/85 backdrop-blur-xl border border-slate-200/70 shadow-sm'
         }`}
       >
         {/* Brand Identity / Group Logo */}
@@ -68,18 +68,18 @@ export const Header: React.FC<HeaderProps> = ({
           className="group flex items-center gap-3 text-left focus:outline-none cursor-pointer shrink-0"
           aria-label="Avighna Speciality Ingredients Home"
         >
-          <AvighnaLogo size="sm" theme="dark" variant="full" />
+          <AvighnaLogo size="sm" theme="light" variant="full" />
         </button>
 
         {/* Desktop Primary Navigation */}
-        <nav className="hidden lg:flex items-center gap-6 xl:gap-8 font-sans text-xs uppercase tracking-wider font-semibold text-[#F9F8F5]/75">
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8 font-sans text-xs uppercase tracking-wider font-semibold text-slate-600">
           {/* Companies Dropdown Menu */}
           <div className="relative">
             <button
               onClick={() => setFirmsDropdownOpen(!firmsDropdownOpen)}
               onMouseEnter={() => setFirmsDropdownOpen(true)}
-              className={`flex items-center gap-1.5 py-1 transition-colors hover:text-[#F9F8F5] cursor-pointer ${
-                currentView === 'firm' || firmsDropdownOpen ? 'text-[#E0581E]' : ''
+              className={`flex items-center gap-1.5 py-1 transition-colors hover:text-slate-900 cursor-pointer ${
+                currentView === 'firm' || firmsDropdownOpen ? 'text-[#E0581E] font-bold' : ''
               }`}
             >
               <span>Our Companies</span>
@@ -89,9 +89,9 @@ export const Header: React.FC<HeaderProps> = ({
             {firmsDropdownOpen && (
               <div
                 onMouseLeave={() => setFirmsDropdownOpen(false)}
-                className="absolute top-full left-0 mt-2 w-80 rounded-2xl bg-[#0E1116] border border-white/10 p-3 shadow-2xl space-y-1 animate-fadeIn"
+                className="absolute top-full left-0 mt-2 w-80 rounded-2xl bg-white border border-slate-200 p-3 shadow-2xl space-y-1 animate-fadeIn"
               >
-                <div className="px-3 py-1.5 text-[10px] font-mono text-[#E5B25D] uppercase tracking-widest border-b border-white/5">
+                <div className="px-3 py-1.5 text-[10px] font-mono text-[#B45309] uppercase tracking-widest border-b border-slate-100 font-semibold">
                   4 Operating Entities
                 </div>
                 {OPERATING_FIRMS.map((firm) => (
@@ -103,14 +103,14 @@ export const Header: React.FC<HeaderProps> = ({
                     }}
                     className={`w-full text-left p-2.5 rounded-xl transition-all flex flex-col cursor-pointer ${
                       currentView === 'firm' && selectedFirmId === firm.id
-                        ? 'bg-[#E0581E]/15 text-[#E0581E] border border-[#E0581E]/30'
-                        : 'hover:bg-white/[0.05] text-[#F9F8F5]'
+                        ? 'bg-[#E0581E]/10 text-[#E0581E] border border-[#E0581E]/20'
+                        : 'hover:bg-slate-50 text-slate-800'
                     }`}
                   >
                     <span className="font-serif text-sm font-bold leading-tight">
                       {firm.shortName}
                     </span>
-                    <span className="text-[10.5px] font-mono text-[#9DA3AF] line-clamp-1 mt-0.5 normal-case">
+                    <span className="text-[10.5px] font-mono text-slate-500 line-clamp-1 mt-0.5 normal-case">
                       {firm.role}
                     </span>
                   </button>
@@ -121,21 +121,21 @@ export const Header: React.FC<HeaderProps> = ({
 
           <button
             onClick={() => handleNavClick('industries')}
-            className="hover:text-[#F9F8F5] transition-colors cursor-pointer py-1"
+            className="hover:text-slate-900 transition-colors cursor-pointer py-1"
           >
             Industries
           </button>
 
           <button
             onClick={() => handleNavClick('about')}
-            className="hover:text-[#F9F8F5] transition-colors cursor-pointer py-1"
+            className="hover:text-slate-900 transition-colors cursor-pointer py-1"
           >
             About Us
           </button>
 
           <button
             onClick={() => handleNavClick('contact')}
-            className="hover:text-[#F9F8F5] transition-colors cursor-pointer py-1"
+            className="hover:text-slate-900 transition-colors cursor-pointer py-1"
           >
             Contact
           </button>
@@ -146,7 +146,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Direct Phone Hotline */}
           <a
             href={`tel:${COMPANY_PROFILE.phones.primaryRaw}`}
-            className="hidden xl:flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.04] border border-white/10 hover:border-[#E0581E] font-mono text-xs text-[#F9F8F5]/85 hover:text-[#E0581E] transition-all"
+            className="hidden xl:flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 border border-slate-200 hover:border-[#E0581E] font-mono text-xs text-slate-700 hover:text-[#E0581E] transition-all"
             title="Direct Executive Hotline (Ashita)"
           >
             <Phone className="w-3.5 h-3.5 text-[#E0581E]" />
@@ -156,17 +156,17 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Primary CTA: Send Requirement */}
           <button
             onClick={() => onOpenRequirementModal(currentView === 'firm' ? selectedFirmId : undefined)}
-            className="px-5 py-2.5 rounded-full bg-[#E0581E] hover:bg-[#F57E25] text-[#08090A] font-sans text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-md shadow-[#E0581E]/20 flex items-center gap-2 cursor-pointer hover:scale-102"
+            className="px-5 py-2.5 rounded-full bg-[#E0581E] hover:bg-[#D9480F] text-white font-sans text-xs font-bold uppercase tracking-wider transition-all duration-200 shadow-md shadow-[#E0581E]/25 flex items-center gap-2 cursor-pointer hover:scale-102"
           >
             <span>Send Requirement</span>
-            <ArrowRight className="w-3.5 h-3.5 text-[#08090A]" />
+            <ArrowRight className="w-3.5 h-3.5 text-white" />
           </button>
 
           {/* Mobile Menu Button */}
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-full bg-white/[0.06] text-[#F9F8F5] border border-white/10 hover:border-[#E0581E] transition-colors cursor-pointer"
+            className="lg:hidden p-2 rounded-full bg-slate-100 text-slate-800 border border-slate-200 hover:border-[#E0581E] transition-colors cursor-pointer"
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5 text-[#E0581E]" /> : <Menu className="w-5 h-5" />}
@@ -176,13 +176,13 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-x-4 top-20 bg-[#08090A]/98 backdrop-blur-3xl z-40 lg:hidden rounded-3xl p-6 border border-white/15 shadow-2xl max-h-[85vh] overflow-y-auto animate-fadeIn">
+        <div className="fixed inset-x-4 top-20 bg-white/98 backdrop-blur-3xl z-40 lg:hidden rounded-3xl p-6 border border-slate-200 shadow-2xl max-h-[85vh] overflow-y-auto animate-fadeIn">
           <div className="space-y-6">
-            <div className="flex items-center justify-between pb-3 border-b border-white/10">
-              <span className="font-mono text-xs text-[#E5B25D] uppercase tracking-widest">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+              <span className="font-mono text-xs text-[#B45309] uppercase tracking-widest font-semibold">
                 // Group Navigation
               </span>
-              <span className="font-mono text-[11px] text-[#9DA3AF]">
+              <span className="font-mono text-[11px] text-slate-500">
                 4 Separate Entities
               </span>
             </div>
@@ -203,47 +203,47 @@ export const Header: React.FC<HeaderProps> = ({
                     }}
                     className={`w-full text-left p-3 rounded-2xl border transition-all flex items-center justify-between cursor-pointer ${
                       currentView === 'firm' && selectedFirmId === firm.id
-                        ? 'bg-[#0E1116] border-[#E0581E] text-[#E0581E]'
-                        : 'bg-white/[0.02] border-white/5 text-[#F9F8F5] hover:bg-white/[0.05]'
+                        ? 'bg-[#E0581E]/10 border-[#E0581E] text-[#E0581E]'
+                        : 'bg-slate-50 border-slate-200/80 text-slate-800 hover:bg-slate-100'
                     }`}
                   >
                     <div>
                       <span className="font-serif text-base font-bold block">{firm.shortName}</span>
-                      <span className="font-mono text-[11px] text-[#9DA3AF] line-clamp-1">{firm.role}</span>
+                      <span className="font-mono text-[11px] text-slate-500 line-clamp-1">{firm.role}</span>
                     </div>
-                    <span className="font-mono text-xs text-[#E0581E]">0{firm.number}</span>
+                    <span className="font-mono text-xs text-[#E0581E] font-bold">0{firm.number}</span>
                   </button>
                 ))}
               </div>
             </div>
 
             {/* General Section Links */}
-            <div className="pt-2 border-t border-white/10 space-y-2">
+            <div className="pt-2 border-t border-slate-100 space-y-2">
               <button
                 onClick={() => handleNavClick('industries')}
-                className="w-full text-left py-3 px-4 rounded-xl bg-white/[0.02] hover:bg-white/[0.05] border border-white/5 font-sans text-sm font-semibold text-[#F9F8F5] block"
+                className="w-full text-left py-3 px-4 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 font-sans text-sm font-semibold text-slate-800 block"
               >
                 Industries Served
               </button>
               <button
                 onClick={() => handleNavClick('about')}
-                className="w-full text-left py-3 px-4 rounded-xl bg-white/[0.02] hover:bg-white/[0.05] border border-white/5 font-sans text-sm font-semibold text-[#F9F8F5] block"
+                className="w-full text-left py-3 px-4 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 font-sans text-sm font-semibold text-slate-800 block"
               >
                 About The Group & Credentials
               </button>
               <button
                 onClick={() => handleNavClick('contact')}
-                className="w-full text-left py-3 px-4 rounded-xl bg-white/[0.02] hover:bg-white/[0.05] border border-white/5 font-sans text-sm font-semibold text-[#F9F8F5] block"
+                className="w-full text-left py-3 px-4 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200 font-sans text-sm font-semibold text-slate-800 block"
               >
                 Contact & Formulation HQ
               </button>
             </div>
 
             {/* Direct Hotlines & Submission */}
-            <div className="pt-4 border-t border-white/10 space-y-3">
+            <div className="pt-4 border-t border-slate-100 space-y-3">
               <a
                 href={`tel:${COMPANY_PROFILE.phones.primaryRaw}`}
-                className="w-full py-3 rounded-2xl bg-white/[0.04] border border-white/10 text-xs font-mono text-[#F9F8F5] flex items-center justify-center gap-2"
+                className="w-full py-3 rounded-2xl bg-slate-100 border border-slate-200 text-xs font-mono text-slate-800 flex items-center justify-center gap-2"
               >
                 <Phone className="w-3.5 h-3.5 text-[#E0581E]" />
                 <span>Call Executive Desk: {COMPANY_PROFILE.phones.primary}</span>
@@ -254,10 +254,10 @@ export const Header: React.FC<HeaderProps> = ({
                   setMobileMenuOpen(false);
                   onOpenRequirementModal(currentView === 'firm' ? selectedFirmId : undefined);
                 }}
-                className="w-full py-3.5 rounded-2xl bg-[#E0581E] text-[#08090A] text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-[#E0581E]/30"
+                className="w-full py-3.5 rounded-2xl bg-[#E0581E] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-[#E0581E]/30"
               >
                 <span>Send Requirement</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 text-white" />
               </button>
             </div>
           </div>

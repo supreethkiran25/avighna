@@ -67,7 +67,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#08090A] text-[#F9F8F5] flex flex-col selection:bg-[#E0581E] selection:text-[#08090A] antialiased">
+    <div className="min-h-screen bg-[#FFFFFF] text-[#0F172A] flex flex-col selection:bg-[#FED7AA] selection:text-[#7C2D12] antialiased">
       {/* Clean Modern B2B Header */}
       <Header
         currentView={currentView}
