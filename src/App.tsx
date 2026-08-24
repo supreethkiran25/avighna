@@ -1,74 +1,140 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header } from './components/common/Header';
 import { HeroSection } from './components/hero/HeroSection';
 import { PartnerLogosStrip } from './components/common/PartnerLogos';
-import { ProductCatalog } from './components/products/ProductCatalog';
-import { FlyerGallery } from './components/gallery/FlyerGallery';
-import { EcosystemSection } from './components/ecosystem/EcosystemSection';
-import { TrustSection } from './components/trust/TrustSection';
-import { DownloadCenter } from './components/downloads/DownloadCenter';
-import { ContactExperience } from './components/contact/ContactExperience';
+import { GroupCompaniesSection } from './components/companies/GroupCompaniesSection';
+import { FirmDetailPage } from './components/firms/FirmDetailPage';
+import { IndustriesSection } from './components/industries/IndustriesSection';
+import { CredibilitySection } from './components/trust/CredibilitySection';
+import { RequirementSection } from './components/contact/RequirementSection';
 import { Footer } from './components/common/Footer';
-import { SampleModal } from './components/common/SampleModal';
-import { ProductItem } from './types';
+import { RequirementModal } from './components/common/RequirementModal';
+import { CompanyId } from './types';
 
 export const App: React.FC = () => {
-  const [inquiryProduct, setInquiryProduct] = useState<string>('');
-  const [isSampleModalOpen, setIsSampleModalOpen] = useState<boolean>(false);
+  const [currentView, setCurrentView] = useState<'home' | 'firm'>('home');
+  const [selectedFirmId, setSelectedFirmId] = useState<CompanyId>('avighna');
+  const [isRequirementModalOpen, setIsRequirementModalOpen] = useState(false);
+  const [modalFirmId, setModalFirmId] = useState<CompanyId>('avighna');
+  const [modalProduct, setModalProduct] = useState<string>('');
 
-  const handleRequestSample = (product?: ProductItem | string) => {
-    if (typeof product === 'string') {
-      setInquiryProduct(product);
-    } else if (product && product.name) {
-      setInquiryProduct(product.name);
+  // Synchronize with URL hash
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash.startsWith('#/companies/')) {
+        const firmKey = hash.replace('#/companies/', '') as CompanyId;
+        if (['avighna', 'ganesh-inc', 'asian-apex', 'atharva-associates'].includes(firmKey)) {
+          setSelectedFirmId(firmKey);
+          setCurrentView('firm');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+      }
+      setCurrentView('home');
+    };
+
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  const handleNavigateHome = () => {
+    window.location.hash = '#/';
+    setCurrentView('home');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigateFirm = (firmId: CompanyId) => {
+    window.location.hash = `#/companies/${firmId}`;
+    setSelectedFirmId(firmId);
+    setCurrentView('firm');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleOpenRequirementModal = (firmId?: CompanyId, product?: string) => {
+    setModalFirmId(firmId || selectedFirmId || 'avighna');
+    setModalProduct(product || '');
+    setIsRequirementModalOpen(true);
+  };
+
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.pageYOffset - 80;
+      window.scrollTo({ top, behavior: 'smooth' });
     }
-    setIsSampleModalOpen(true);
   };
 
   return (
     <div className="min-h-screen bg-[#08090A] text-[#F9F8F5] flex flex-col selection:bg-[#E0581E] selection:text-[#08090A] antialiased">
-      {/* Rebuilt Architectural Navigation Bar */}
-      <Header onOpenSampleModal={() => handleRequestSample()} />
+      {/* Clean Modern B2B Header */}
+      <Header
+        currentView={currentView}
+        selectedFirmId={selectedFirmId}
+        onNavigateHome={handleNavigateHome}
+        onNavigateFirm={handleNavigateFirm}
+        onOpenRequirementModal={handleOpenRequirementModal}
+      />
 
-      {/* Main Continuous Editorial & Data Flow */}
+      {/* Main View Flow */}
       <main className="flex-grow">
-        {/* Cinematic Hero Section with Ground-Truth Identity */}
-        <HeroSection onOpenSampleModal={() => handleRequestSample()} />
+        {currentView === 'home' ? (
+          <>
+            {/* Minimal, Confident B2B Hero */}
+            <HeroSection
+              onExploreCompanies={() => scrollToSection('companies')}
+              onSendRequirement={() => scrollToSection('contact')}
+            />
 
-        {/* Global Principals Representation Strip */}
-        <div className="border-y border-white/[0.06] bg-[#0A0C0E]">
-          <div className="container-editorial">
-            <PartnerLogosStrip />
-          </div>
-        </div>
+            {/* Global Authorized Principals Representation Strip */}
+            <div className="border-y border-white/[0.06] bg-[#0A0C0E]">
+              <div className="container-editorial">
+                <PartnerLogosStrip />
+              </div>
+            </div>
 
-        {/* Interactive Filterable Products & Formulations Catalog */}
-        <ProductCatalog onRequestSample={handleRequestSample} />
+            {/* Group Companies Section (The 4 Entities Highlight) */}
+            <GroupCompaniesSection onSelectFirm={handleNavigateFirm} />
 
-        {/* Official Product Flyers & Technical Dossier Lightbox Gallery */}
-        <FlyerGallery />
+            {/* Cross-Industry Supply Matrix */}
+            <IndustriesSection
+              onSelectFirm={handleNavigateFirm}
+            />
 
-        {/* Group Ecosystem (Avighna Speciality, Ganesh Inc., Asian Apex, Atharva Associates) & Principals */}
-        <EcosystemSection />
+            {/* Genuine Credibility, Unilever Award & Client Roster */}
+            <CredibilitySection />
 
-        {/* Institutional Trust, Unilever Best Vendor Award & Client Roster */}
-        <TrustSection />
-
-        {/* Official Technical PDF Downloads & Dossiers Center */}
-        <DownloadCenter />
-
-        {/* Executive Formulation & Sample Request Desk */}
-        <ContactExperience initialService={inquiryProduct} />
+            {/* Structured B2B Requirement Form */}
+            <RequirementSection
+              initialFirmId={selectedFirmId}
+              initialProduct={modalProduct}
+            />
+          </>
+        ) : (
+          /* Dedicated Firm Page & Exclusive Catalogue */
+          <FirmDetailPage
+            firmId={selectedFirmId}
+            onBackToHome={handleNavigateHome}
+            onSwitchFirm={handleNavigateFirm}
+            onOpenRequirementModal={handleOpenRequirementModal}
+          />
+        )}
       </main>
 
-      {/* Corporate Editorial Footer */}
-      <Footer />
+      {/* Structured Clean Corporate Footer */}
+      <Footer
+        onNavigateHome={handleNavigateHome}
+        onNavigateFirm={handleNavigateFirm}
+        onOpenRequirementModal={() => handleOpenRequirementModal()}
+      />
 
-      {/* Interactive Formulation Sample Request Modal */}
-      <SampleModal
-        isOpen={isSampleModalOpen}
-        onClose={() => setIsSampleModalOpen(false)}
-        initialProduct={inquiryProduct}
+      {/* Reusable Requirement Modal */}
+      <RequirementModal
+        isOpen={isRequirementModalOpen}
+        onClose={() => setIsRequirementModalOpen(false)}
+        initialFirmId={modalFirmId}
+        initialProduct={modalProduct}
       />
     </div>
   );

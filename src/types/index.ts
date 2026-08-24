@@ -1,21 +1,11 @@
-export interface MetricItem {
-  id: string;
-  value: string;
-  label: string;
-  sublabel: string;
-  verifiedSource: string;
-  category: 'timeline' | 'volume' | 'network' | 'accolade' | 'retention';
-}
+export type CompanyId = 'avighna' | 'ganesh-inc' | 'asian-apex' | 'atharva-associates';
 
 export type IndustryCategory = 
-  | 'food-processing'
-  | 'dairy-icecream'
-  | 'beverage-drinks'
-  | 'fried-foods'
+  | 'food-snacks'
+  | 'dairy-cheese'
+  | 'beverage-confectionery'
   | 'pharma-nutra'
   | 'industrial-hygiene';
-
-export type CompanyId = 'avighna' | 'ganesh-inc' | 'asian-apex' | 'atharva-associates';
 
 export interface ProductSpecification {
   label: string;
@@ -27,8 +17,10 @@ export interface ProductItem {
   companyId: CompanyId;
   name: string;
   brandOrPrincipal?: string;
-  category: IndustryCategory;
-  categoryLabel: string;
+  firmCategoryId: string;
+  firmCategoryLabel: string;
+  industryCategory: IndustryCategory;
+  industryCategoryLabel: string;
   tagline: string;
   description: string;
   dosageOrUsage?: string;
@@ -40,6 +32,67 @@ export interface ProductItem {
   badge?: string;
   imageUrl?: string;
   documentDownload?: string;
+}
+
+export interface FirmCategory {
+  id: string;
+  label: string;
+  description?: string;
+}
+
+export interface OperatingFirm {
+  id: CompanyId;
+  number: string;
+  name: string;
+  shortName: string;
+  legalName: string;
+  kannadaName?: string;
+  badge: string;
+  tagline: string;
+  role: string;
+  description: string;
+  establishedInfo: string;
+  primaryCategories: string[];
+  firmCategories: FirmCategory[];
+  principalsOrPartners: string[];
+  contactPerson: string;
+  phones: string[];
+  primaryPhone: string;
+  primaryPhoneRaw: string;
+  email: string;
+  hasActiveCatalogue: boolean;
+  brochurePdf?: string;
+}
+
+export interface IndustryItem {
+  id: IndustryCategory;
+  title: string;
+  kannadaTitle?: string;
+  description: string;
+  applications: string[];
+  keyIngredients: string[];
+  supplyingFirms: {
+    firmId: CompanyId;
+    firmName: string;
+    role: string;
+  }[];
+}
+
+export interface MetricItem {
+  id: string;
+  value: string;
+  label: string;
+  sublabel: string;
+  verifiedSource: string;
+  category: 'timeline' | 'volume' | 'network' | 'accolade' | 'retention';
+}
+
+export interface ClientPartner {
+  id: string;
+  name: string;
+  category: string;
+  relationship: string;
+  highlight?: string;
 }
 
 export interface EcosystemDivision {
@@ -69,14 +122,6 @@ export interface GlobalPrincipal {
   badge?: string;
 }
 
-export interface ClientPartner {
-  id: string;
-  name: string;
-  category: string;
-  relationship: string;
-  highlight?: string;
-}
-
 export interface CustomerReview {
   id: string;
   author: string;
@@ -91,6 +136,7 @@ export interface CustomerReview {
 
 export interface DownloadableDoc {
   id: string;
+  firmId?: CompanyId | 'all';
   title: string;
   category: string;
   description: string;
