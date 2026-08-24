@@ -5,15 +5,17 @@ import { PartnerLogosStrip } from './components/common/PartnerLogos';
 import { GroupCompaniesSection } from './components/companies/GroupCompaniesSection';
 import { FirmDetailPage } from './components/firms/FirmDetailPage';
 import { IndustriesSection } from './components/industries/IndustriesSection';
+import { IndustryDetailPage } from './components/industries/IndustryDetailPage';
 import { CredibilitySection } from './components/trust/CredibilitySection';
 import { RequirementSection } from './components/contact/RequirementSection';
 import { Footer } from './components/common/Footer';
 import { RequirementModal } from './components/common/RequirementModal';
-import { CompanyId } from './types';
+import { CompanyId, IndustryCategory } from './types';
 
 export const App: React.FC = () => {
-  const [currentView, setCurrentView] = useState<'home' | 'firm'>('home');
+  const [currentView, setCurrentView] = useState<'home' | 'firm' | 'industry'>('home');
   const [selectedFirmId, setSelectedFirmId] = useState<CompanyId>('avighna');
+  const [selectedIndustryId, setSelectedIndustryId] = useState<IndustryCategory>('food-snacks');
   const [isRequirementModalOpen, setIsRequirementModalOpen] = useState(false);
   const [modalFirmId, setModalFirmId] = useState<CompanyId>('avighna');
   const [modalProduct, setModalProduct] = useState<string>('');
@@ -22,6 +24,7 @@ export const App: React.FC = () => {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash;
+      
       if (hash.startsWith('#/companies/')) {
         const firmKey = hash.replace('#/companies/', '') as CompanyId;
         if (['avighna', 'ganesh-inc', 'asian-apex', 'atharva-associates'].includes(firmKey)) {
@@ -31,6 +34,23 @@ export const App: React.FC = () => {
           return;
         }
       }
+
+      if (hash.startsWith('#/industries/')) {
+        const indKey = hash.replace('#/industries/', '') as IndustryCategory;
+        if ([
+          'food-snacks',
+          'dairy-cheese',
+          'beverage-confectionery',
+          'pharma-nutra',
+          'industrial-hygiene',
+        ].includes(indKey)) {
+          setSelectedIndustryId(indKey);
+          setCurrentView('industry');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+      }
+
       setCurrentView('home');
     };
 
@@ -52,6 +72,13 @@ export const App: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleNavigateIndustry = (industryId: IndustryCategory) => {
+    window.location.hash = `#/industries/${industryId}`;
+    setSelectedIndustryId(industryId);
+    setCurrentView('industry');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const handleOpenRequirementModal = (firmId?: CompanyId, product?: string) => {
     setModalFirmId(firmId || selectedFirmId || 'avighna');
     setModalProduct(product || '');
@@ -70,7 +97,7 @@ export const App: React.FC = () => {
     <div className="min-h-screen bg-[#FFFFFF] text-[#0F172A] flex flex-col selection:bg-[#FED7AA] selection:text-[#7C2D12] antialiased">
       {/* Clean Modern B2B Header */}
       <Header
-        currentView={currentView}
+        currentView={currentView === 'industry' ? 'home' : currentView}
         selectedFirmId={selectedFirmId}
         onNavigateHome={handleNavigateHome}
         onNavigateFirm={handleNavigateFirm}
@@ -79,7 +106,7 @@ export const App: React.FC = () => {
 
       {/* Main View Flow */}
       <main className="flex-grow">
-        {currentView === 'home' ? (
+        {currentView === 'home' && (
           <>
             {/* Minimal, Confident B2B Hero */}
             <HeroSection
@@ -97,10 +124,8 @@ export const App: React.FC = () => {
             {/* Group Companies Section (The 4 Entities Highlight) */}
             <GroupCompaniesSection onSelectFirm={handleNavigateFirm} />
 
-            {/* Cross-Industry Supply Matrix */}
-            <IndustriesSection
-              onSelectFirm={handleNavigateFirm}
-            />
+            {/* Layer 1: Clean, Compact Industry Discovery Section */}
+            <IndustriesSection onSelectIndustry={handleNavigateIndustry} />
 
             {/* Genuine Credibility, Unilever Award & Client Roster */}
             <CredibilitySection />
@@ -111,12 +136,25 @@ export const App: React.FC = () => {
               initialProduct={modalProduct}
             />
           </>
-        ) : (
+        )}
+
+        {currentView === 'firm' && (
           /* Dedicated Firm Page & Exclusive Catalogue */
           <FirmDetailPage
             firmId={selectedFirmId}
             onBackToHome={handleNavigateHome}
             onSwitchFirm={handleNavigateFirm}
+            onOpenRequirementModal={handleOpenRequirementModal}
+          />
+        )}
+
+        {currentView === 'industry' && (
+          /* Layer 2: Dedicated Industry Solutions Page with Company Grouping */
+          <IndustryDetailPage
+            industryId={selectedIndustryId}
+            onBackToHome={handleNavigateHome}
+            onSwitchIndustry={handleNavigateIndustry}
+            onNavigateFirm={handleNavigateFirm}
             onOpenRequirementModal={handleOpenRequirementModal}
           />
         )}

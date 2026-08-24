@@ -64,18 +64,19 @@ export interface OperatingFirm {
   brochurePdf?: string;
 }
 
+export interface IndustrySubApplication {
+  id: string;
+  name: string;
+  description: string;
+  productIds: string[];
+}
+
 export interface IndustryItem {
   id: IndustryCategory;
   title: string;
-  kannadaTitle?: string;
-  description: string;
-  applications: string[];
-  keyIngredients: string[];
-  supplyingFirms: {
-    firmId: CompanyId;
-    firmName: string;
-    role: string;
-  }[];
+  shortDescription: string;
+  tags: string[];
+  applications: IndustrySubApplication[];
 }
 
 export interface MetricItem {
@@ -95,38 +96,11 @@ export interface ClientPartner {
   highlight?: string;
 }
 
-export interface EcosystemDivision {
-  id: string;
-  number: string;
-  name: string;
-  shortName: string;
-  kannadaName?: string;
-  role: string;
-  description: string;
-  establishedInfo?: string;
-  imageUrl: string;
-  keyOfferings: string[];
-  principalsOrPartners: string[];
-  badge: string;
-  contactPerson?: string;
-  phone?: string;
-}
-
-export interface GlobalPrincipal {
-  id: string;
-  name: string;
-  origin: string;
-  role: string;
-  productsSupplied: string[];
-  accreditation?: string;
-  badge?: string;
-}
-
 export interface CustomerReview {
   id: string;
   author: string;
+  organization: string;
   roleOrContext: string;
-  organization?: string;
   rating: number;
   source: string;
   date: string;
